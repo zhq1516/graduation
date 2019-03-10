@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.platform.dao.ArticleInfoDao">
+
+    <resultMap id="articleMap" type="com.platform.model.ArticleInfo">
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="publish_time" property="publishTime"/>
+        <result column="collect_number" property="collectNumber"/>
+        <result column="up_number" property="upNumber"/>
+    </resultMap>
+
+    <!-- 列表 -->
+    <select id="list" parameterType="hashMap" resultType="com.platform.model.ArticleInfo" resultMap="articleMap">
+        select
+            a.*,
+            u.username as authorName,
+            art.name as typeName
+        from article as a
+        left join user as u on a.author = u.id
+        left join article_type as art on a.type = art.id
+    </select>
+
+    <!-- 数目 -->
+    <select id="count" parameterType="hashMap" resultType="java.lang.Integer">
+        select count(*)
+        from article
+    </select>
+
+</mapper>

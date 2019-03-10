@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.platform.dao.PostInfoDao">
+
+    <resultMap id="postMap" type="com.platform.model.PostInfo">
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="poster_id" property="posterId"/>
+        <result column="post_title" property="postTitle"/>
+        <result column="post_content" property="postContent"/>
+        <result column="post_img" property="postImage"/>
+    </resultMap>
+
+    <!-- 根据ID获取帖子详情 -->
+    <select id="detail" parameterType="java.lang.Integer" resultType="com.platform.model.PostInfo" resultMap="postMap">
+        select *
+        from posts as p
+        where p.id = #{id}
+    </select>
+
+    <!-- 获取帖子列表 -->
+    <select id="list" resultType="com.platform.model.PostInfo" resultMap="postMap">
+        select
+            p.*,
+            u.username as posterName,
+            u.avator as avator
+        from posts as p
+        left join user as u on p.poster_id = u.id
+        where p.status = 1
+    </select>
+
+</mapper>
