@@ -18,9 +18,21 @@
                 </a>
             </li>
             <li class="show-on-hover">
+                <a href="<%=request.getContextPath()%>/wx/post/">
+                    <i class="fa fa-file"></i>
+                    <span>发帖管理</span>
+                </a>
+            </li>
+            <li class="show-on-hover">
                 <a href="<%=request.getContextPath()%>/user/">
                     <i class="fa fa-user"></i>
                     <span>系统用户管理</span>
+                </a>
+            </li>
+            <li class="show-on-hover">
+                <a href="<%=request.getContextPath()%>/wx/user/">
+                    <i class="fa fa-weixin"></i>
+                    <span>微信用户管理</span>
                 </a>
             </li>
             <li class="dropdown show-on-hover">
@@ -45,11 +57,11 @@
                 <img src="img/about.png" alt="">
             </a>
             <span>
-                        <b>Cameo</b>&#32;is a responsive admin template powered by bootstrap 3.
-                        <a href="javascript:;">
-                            <b>Find out more</b>
-                        </a>
-                    </span>
+                <b>Cameo</b>&#32;is a responsive admin template powered by bootstrap 3.
+                <a href="javascript:;">
+                    <b>Find out more</b>
+                </a>
+            </span>
         </div>
         <div class="footer-toolbar pull-left">
             <a href="javascript:;" class="pull-left help">

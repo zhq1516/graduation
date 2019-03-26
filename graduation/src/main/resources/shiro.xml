@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<!-- 认证数据库存储-->
+	<bean id="login" class="com.platform.controller.shiro.LoginFilter"/>
+
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/login" />
+		<property name="successUrl" value="/user" />
+		<property name="unauthorizedUrl" value="/unauth" />
+		<property name="filterChainDefinitions">
+			<value>
+				/logout=anon
+				/wx/**=anon
+				/staticResource/**=anon
+				/resources/**=anon
+				/favicon.ico=anon
+				/unauth=anon
+				/**=login,authc
+				/disease/**=anon
+			</value>
+		</property>
+		<property name="filters">
+			<util:map>
+				<entry key="login" value-ref="login"/>
+			</util:map>
+		</property>
+	</bean>
+
+	<bean id="myShiroRealm" class="com.platform.controller.shiro.UserRealm">
+		<!--验证方式 -->
+		<property name="credentialsMatcher">
+			<bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+				<property name="hashAlgorithmName" value="MD5" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="shiroCacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager" />
+
+	<!-- 权限管理器 -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<!-- 数据库认证的实现 org.springrain.frame.shiro.ShiroDbRealm -->
+		<property name="realm" ref="myShiroRealm" />
+		<!-- 缓存管理器 -->
+		<property name="cacheManager" ref="shiroCacheManager" />
+	</bean>
+
+	<bean id="sessionManager"
+		class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+		<property name="globalSessionTimeout" value="288000000" />
+		<property name="deleteInvalidSessions" value="true" />
+	</bean>
+
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+</beans>

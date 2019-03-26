@@ -11,22 +11,59 @@
     </resultMap>
 
     <!-- 列表 -->
-    <select id="list" parameterType="hashMap" resultType="com.platform.model.User" resultMap="userMap">
+    <select id="list" parameterType="java.util.HashMap" resultType="com.platform.model.User" resultMap="userMap">
         select
             u.*,
             r.name as roleName
         from user as u
         left join role as r on u.role = r.id
+        <where>
+            u.status is not null
+            <if test="userName != null and userName != ''">
+                and u.username like concat('%',#{userName},'%')
+            </if>
+            <if test="loginAccount != null and loginAccount != ''">
+                and u.login_account = #{loginAccount}
+            </if>
+            <if test="userRole != null and userRole != ''">
+                and r.id = #{userRole}
+            </if>
+            <if test="createTimeS != null and createTimeS != ''">
+                and u.create_time &gt;= #{createTimeS}
+            </if>
+            <if test="createTimeE != null and createTimeE != ''">
+                and u.create_time &lt;= #{createTimeE}
+            </if>
+        </where>
     </select>
 
     <!-- 数目 -->
-    <select id="count" parameterType="hashMap" resultType="java.lang.Integer">
+    <select id="count" parameterType="java.util.HashMap" resultType="java.lang.Integer">
         select count(*)
-        from user
+        from user as u
+        left join role as r on u.role = r.id
+        <where>
+            u.status is not null
+            <if test="userName != null and userName != ''">
+                and u.username like concat('%',#{userName},'%')
+            </if>
+            <if test="loginAccount != null and loginAccount != ''">
+                and u.login_account = #{loginAccount}
+            </if>
+            <if test="userRole != null and userRole != ''">
+                and r.id = #{userRole}
+            </if>
+            <if test="createTimeS != null and createTimeS != ''">
+                and u.create_time &gt;= #{createTimeS}
+            </if>
+            <if test="createTimeE != null and createTimeE != ''">
+                and u.create_time &lt;= #{createTimeE}
+            </if>
+        </where>
     </select>
 
     <!-- 新增用户 -->
-    <insert id="addUser" parameterType="com.platform.model.User" useGeneratedKeys="true" keyColumn="id">
+    <insert id="addUser" parameterType="com.platform.model.User" useGeneratedKeys="true" keyProperty="id">
         insert into user(
             username,
             password,
@@ -43,10 +80,57 @@
             #{loginAccount,jdbcType=VARCHAR},
             #{role,jdbcType=INTEGER},
             #{avator,jdbcType=VARCHAR},
-            getdate,
-            getdate,
+            NOW(),
+            NOW(),
             1
         )
     </insert>
+
+    <!-- 修改用户信息 -->
+    <update id="modifyUser" parameterType="com.platform.model.User">
+        update user
+        <set>
+            username = #{userName},
+            <if test="password != null and password != ''">
+                password = #{password}
+            </if>
+            login_account = #{loginAccount},
+            role = #{role},
+            avator = #{avator},
+            update_time = NOW()
+        </set>
+        where id = #{id}
+    </update>
+
+    <!-- 用户信息 -->
+    <select id="detail" parameterType="java.util.HashMap" resultType="com.platform.model.User" resultMap="userMap">
+        select u.*
+        from user as u
+        <where>
+            u.status is not null
+            <if test="id != null and id != ''">
+                and u.id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <!-- 批量删除用户 -->
+    <delete id="deleteUser" parameterType="java.util.List">
+        delete from user
+        where id in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <!-- 批量禁用用户 -->
+    <update id="forbidUser" parameterType="java.util.List">
+        update user
+        set status = 0
+        where id in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
 
 </mapper>

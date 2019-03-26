@@ -1,6 +1,7 @@
 package com.platform.dao;
 
 import com.platform.model.ArticleInfo;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
  * @author: Air
  * @date: 2019-02-28 22:48
  */
+@Repository
 public interface ArticleInfoDao {
 
     // 查询记录

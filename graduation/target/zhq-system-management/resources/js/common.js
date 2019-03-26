@@ -77,3 +77,84 @@ var dataTableInit = {
         });
     }
 };
+
+/**
+ * 表单提交
+ * @param form
+ * @param url
+ * @param table
+ * @param callback
+ * @returns {*|jQuery}
+ */
+
+function validateForm(form,url,table,callback) {
+    var submitForm;
+    // 改变form提交路径
+    $(form).attr("action",server_context + url);
+    // 自定义规则
+    jQuery.validator.addMethod("isMobile", function(value, element) {
+        var length = value.length;
+        var mobile = /^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$/;
+        return this.optional(element) || (length == 11 && mobile.test(value));
+    }, "请正确填写您的手机号码");
+    // 表单提交
+    var validateSubmitForm = $(form).validate({
+        // 检查规则
+        rules:{
+
+        },
+        // 提示信息
+        messages:{
+
+        },
+        // 忽略标志
+        ignore:".ignore",
+        // 错误提示位置
+        errorPlacement:function(error,element) {
+            if(element.siblings()[0] != null){
+                error.insertAfter(element.parent());
+            }else {
+                error.appendTo(element.parent());
+            }
+        },
+        // 错误提示类型
+        errorElement: "span",
+        // 表单提交
+        submitHandler: function(form) {
+            submitForm = $(form).ajaxSubmit({
+                type: "post",
+                dataType: "json",
+                cache: false,
+                success:function (res) {
+                    if(res.status === 200){
+                        alert("信息保存成功！");
+                        if(callback){
+                            callback(res.data);
+                        }
+                        if(table){
+                            table.ajax.reload();
+                        }
+                    }
+                },
+                error:function () {
+                    alert("信息保存失败！");
+                }
+            })
+        }
+    });
+    return validateSubmitForm;
+}
+
+function fillTableData(form,data,callback) {
+    for(var key in data){
+        if(data[key] !== null && data[key] !== ""){
+            $(form + " input[type='text'][name='"+key+"']").val(data[key]);
+            $(form + " input[type='hidden'][name='"+key+"']").val(data[key]);
+            $(form + " select[name='"+key+"']").selectpicker("val",data[key].toString().split(",")).selectpicker("refresh");
+            $(form + " img[name='"+key+"']").attr("src",static_resource + data[key]);
+        }
+    }
+    if(callback){
+        callback();
+    }
+}

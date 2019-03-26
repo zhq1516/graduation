@@ -1,6 +1,7 @@
 package com.platform.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 
@@ -9,6 +10,7 @@ import java.util.Date;
  * @author: Air
  * @date: 2019-03-09 13:27
  */
+
 public class PostInfo {
     private Integer id;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
@@ -23,8 +25,12 @@ public class PostInfo {
     private String postContent;//内容
     private String postImage;// 配图
     private Integer collectNumber = 0;//收藏数
+    private Integer collectStatus;
     private Integer readNumber = 0;//阅读数
+    private Integer readStatus;
     private Integer commentNumber = 0;//评论数
+    private Integer upNumber = 0;//点赞数
+    private Integer upStatus;
 
     public Integer getId() {
         return id;
@@ -128,5 +134,37 @@ public class PostInfo {
 
     public void setCommentNumber(Integer commentNumber) {
         this.commentNumber = commentNumber;
+    }
+
+    public Integer getUpNumber() {
+        return upNumber;
+    }
+
+    public void setUpNumber(Integer upNumber) {
+        this.upNumber = upNumber;
+    }
+
+    public Integer getCollectStatus() {
+        return collectStatus;
+    }
+
+    public void setCollectStatus(Integer collectStatus) {
+        this.collectStatus = collectStatus;
+    }
+
+    public Integer getReadStatus() {
+        return readStatus;
+    }
+
+    public void setReadStatus(Integer readStatus) {
+        this.readStatus = readStatus;
+    }
+
+    public Integer getUpStatus() {
+        return upStatus;
+    }
+
+    public void setUpStatus(Integer upStatus) {
+        this.upStatus = upStatus;
     }
 }

@@ -43,7 +43,7 @@
                                                 <div class="form-group">
                                                     <label class="col-xs-4 control-label ">用户名：</label>
                                                     <div class="col-xs-6">
-                                                        <input type="text" class="form-control" name="userName" placeholder="请输入用户名称">
+                                                        <input type="text" autocomplete="false" class="form-control" name="userName" placeholder="请输入用户名称">
                                                     </div>
                                                 </div>
                                             </div>
@@ -51,7 +51,7 @@
                                                 <div class="form-group">
                                                     <label class="col-xs-4 control-label ">密码：</label>
                                                     <div class="col-xs-6">
-                                                        <input type="password" class="form-control" name="password" placeholder="请输入密码">
+                                                        <input type="password" autocomplete="false" class="form-control" name="password" placeholder="请输入密码">
                                                     </div>
                                                 </div>
                                             </div>
@@ -71,9 +71,9 @@
                                                 <div class="form-group">
                                                     <label class="col-xs-4 control-label ">用户头像：</label>
                                                     <div class="col-xs-6 avatar-area">
-                                                        <input class="hidden" type="file" id="chooseAvator" accept="image/*">
+                                                        <input class="hidden" type="file" id="chooseAvator" name="avatorFile" accept="image/*">
                                                         <div class="avatar-box" id="addAvator">
-                                                            <img id="showAvator" src="" alt="">
+                                                            <img id="showAvator" name="avator" src="" alt="">
                                                         </div>
                                                         <span>点击添加头像</span>
                                                     </div>
@@ -82,7 +82,7 @@
                                         </div>
                                         <div class="panel-footer text-center">
                                             <button class="btn btn-color btn-sm" type="submit" name="formSubmit">保存</button>
-                                            <button class="btn btn-color btn-sm" type="reset" name="formReset">重置</button>
+                                            <button class="btn btn-color btn-sm" type="button" name="formReset">重置</button>
                                             <button class="btn btn-color btn-sm" type="button" name="formClose" data-dismiss="modal">关闭</button>
                                         </div>
                                     </form>

@@ -4,11 +4,10 @@ import com.platform.dao.UserDao;
 import com.platform.model.User;
 import com.platform.model.vm.ApiResult;
 import com.platform.service.IUserService;
+import com.platform.utils.FileUploadUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.annotation.Resource;
-import javax.servlet.http.Part;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,7 +19,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements IUserService {
 
-    @Resource
+    @Autowired
     private UserDao userDao;
 
     @Override
@@ -36,4 +35,77 @@ public class UserServiceImpl implements IUserService {
         return result;
     }
 
+    @Override
+    public ApiResult addUser(User model) {
+        ApiResult result = new ApiResult();
+        if(model.getAvatorFile() != null){
+            String avator = FileUploadUtil.uploadFile(model.getAvatorFile(),"avator");
+            model.setAvator("/" + avator);
+        }else{
+            model.setAvator("/avator/public_avator.jpg");
+        }
+        Integer ins = userDao.addUser(model);
+        if(ins > 0){
+            result.setData(model.getId());
+            result.success();
+        }else {
+            result.fail("用户创建失败！");
+        }
+        return result;
+    }
+
+    @Override
+    public ApiResult modifyUser(User model) {
+        ApiResult result = new ApiResult();
+        if(model.getAvatorFile() != null){
+            String avator = FileUploadUtil.uploadFile(model.getAvatorFile(),"avator");
+            model.setAvator("/" + avator);
+        }else{
+            model.setAvator("/avator/public_avator.jpg");
+        }
+        Integer ins = userDao.modifyUser(model);
+        if(ins > 0){
+            result.success();
+        }else{
+            result.fail("用户信息修改失败！");
+        }
+        return result;
+    }
+
+    @Override
+    public ApiResult deleteUser(List<Integer> ids) {
+        ApiResult result = new ApiResult();
+        Integer ins = userDao.deleteUser(ids);
+        if(ins > 0){
+            result.success();
+        }else {
+            result.fail("删除用户失败！");
+        }
+        return result;
+    }
+
+    @Override
+    public ApiResult forbidUser(List<Integer> ids) {
+        ApiResult result = new ApiResult();
+        Integer ins = userDao.forbidUser(ids);
+        if(ins > 0){
+            result.success();
+        }else{
+            result.fail("禁用用户失败！");
+        }
+        return result;
+    }
+
+    @Override
+    public ApiResult detail(HashMap<String, Object> map) {
+        ApiResult result = new ApiResult();
+        User user = userDao.detail(map);
+        if(user != null){
+            result.setData(user);
+            result.success();
+        }else{
+            result.fail("没有相关用户信息！");
+        }
+        return result;
+    }
 }

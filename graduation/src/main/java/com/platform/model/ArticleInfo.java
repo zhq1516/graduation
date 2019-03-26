@@ -1,6 +1,7 @@
 package com.platform.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 
@@ -9,6 +10,7 @@ import java.util.Date;
  * @author: Air
  * @date: 2019-02-28 22:39
  */
+
 public class ArticleInfo {
     private Integer id;
     private String uuid;

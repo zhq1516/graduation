@@ -20,12 +20,56 @@
         from article as a
         left join user as u on a.author = u.id
         left join article_type as art on a.type = art.id
+        <where>
+            a.status != 0
+            <if test="title != null and title != ''">
+                and a.title like concat('%',#{title},'%')
+            </if>
+            <if test="author != null and author != ''">
+                and u.username like concat('%',#{author},'%')
+            </if>
+            <if test="type != null and type != ''">
+                and art.id = #{type}
+            </if>
+            <if test="createTimeS != null and createTimeS != ''">
+                and a.create_time &gt;= #{createTimeS}
+            </if>
+            <if test="createTimeE != null and createTimeE != ''">
+                and a.create_time &lt;= #{createTimeE}
+            </if>
+            <if test="status != null and status != ''">
+                and a.status = #{status}
+            </if>
+        </where>
     </select>
 
     <!-- 数目 -->
     <select id="count" parameterType="hashMap" resultType="java.lang.Integer">
         select count(*)
-        from article
+        from article as a
+        left join user as u on a.author = u.id
+        left join article_type as art on a.type = art.id
+        <where>
+            a.status != 0
+            <if test="title != null and title != ''">
+                and a.title like concat('%',#{title},'%')
+            </if>
+            <if test="author != null and author != ''">
+                and u.username like concat('%',#{author},'%')
+            </if>
+            <if test="type != null and type != ''">
+                and art.id = #{type}
+            </if>
+            <if test="createTimeS != null and createTimeS != ''">
+                and a.create_time &gt;= #{createTimeS}
+            </if>
+            <if test="createTimeE != null and createTimeE != ''">
+                and a.create_time &lt;= #{createTimeE}
+            </if>
+            <if test="status != null and status != ''">
+                and a.status = #{status}
+            </if>
+        </where>
     </select>
 
 </mapper>

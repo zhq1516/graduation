@@ -15,14 +15,14 @@
             <button class="btn no-border no-margin bg-none no-pd-l" type="submit">
                 <i class="fa fa-search"></i>
             </button>
-            <input type="text" class="form-control no-border no-padding search" placeholder="Search Workspace">
+            <input type="text" class="form-control no-border no-padding search" placeholder="搜索工作区间">
         </div>
     </form>
     <!-- 上边栏 -->
     <ul class="nav navbar-nav navbar-right off-right">
         <li class="hidden-xs">
             <a href="javascript:;">
-                +Gerald Theodore Morris
+                赵杭琪
             </a>
         </li>
         <li class="notifications dropdown hidden-xs">
@@ -34,7 +34,7 @@
                 <div class="panel bg-white no-border no-margin">
                     <div class="panel-heading no-radius">
                         <small>
-                            <b>Notifications</b>
+                            <b>通知</b>
                         </small>
                         <small class="pull-right">
                             <a href="javascript:;" class="mg-r-xs">mark as read</a>&#8226;

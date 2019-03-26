@@ -22,4 +22,16 @@ $(document).ready(function () {
         $("#chooseAvator").trigger("click");
     });
 
+    // 用户表单
+    userForm = validateForm("#userInfoForm","user/save",table,function (e) {
+        //$("#userTable").modal("hide");
+    });
+
+    // 重置表格信息
+    $("#userInfoForm button[name='formReset']").on("click",function (e) {
+        userForm.resetForm();
+        $("#showAvator").attr("src","");
+        $(".selectpicker").selectpicker("refresh");
+    });
+
 });

@@ -13,13 +13,45 @@
     <!--此文件负责整个mvc中的配置-->
 
     <!-- 自动扫描装配 -->
-    <context:component-scan base-package="com.platform.controller"/>
+    <context:component-scan base-package="com.platform"/>
 
     <!--启用spring的一些annotation -->
     <context:annotation-config/>
 
     <!-- 配置注解驱动 可以将request参数与绑定到controller参数上 -->
     <mvc:annotation-driven/>
+
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <!-- 去除返回字符串时的引号 -->
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg value="UTF-8" />
+                <!-- 避免出现乱码 -->
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/plain;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+            <bean id="mappingJackson2HttpMessageConverter"
+                  class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="objectMapper">
+                    <bean class="com.platform.utils.JsonObjectMapper">
+                        <property name="timeZone" value="GMT+8"/>
+                    </bean>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+        <property name="jsonpParameterNames">
+            <set>
+                <value>jsonp</value>
+                <value>callback</value>
+            </set>
+        </property>
+    </bean>
 
     <!--静态资源映射-->
     <!--本项目把静态资源放在resources目录下，资源映射如下-->
@@ -28,10 +60,39 @@
     <!-- 对模型视图名称的解析，即在模型视图名称添加前后缀(如果最后一个还是表示文件夹,则最后的斜杠不要漏了) 使用JSP-->
     <!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- -->
     <bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
         <property name="prefix" value="/WEB-INF/views/"/><!--设置JSP文件的目录位置-->
         <property name="suffix" value=".jsp"/>
-        <property name="exposeContextBeansAsAttributes" value="true"/>
+        <!-- <property name="exposeContextBeansAsAttributes" value="true"/> -->
+    </bean>
+
+    <!-- 异常处理，权限注解会抛出异常，根据异常返回相应页面 -->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="org.apache.shiro.authz.UnauthorizedException">error/unauth</prop>
+                <prop key="org.apache.shiro.authz.UnauthenticatedException">login</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor" />
+
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager" />
+    </bean>
+
+    <!-- 文件上传 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 上传文件字节大小 -->
+        <property name="maxUploadSize" value="10000000"/>
+        <!-- 表单字符的编码格式 -->
+        <property name="defaultEncoding" value="UTF-8"/>
+        <!-- 上传图片的字节缓冲区大小 -->
+        <property name="maxInMemorySize" value="2048"/>
+        <!-- 推迟文件解析以便捕获文件大小异常 -->
+        <property name="resolveLazily" value="true"/>
     </bean>
 
 </beans>

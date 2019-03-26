@@ -1,5 +1,9 @@
 package com.platform.controller;
 
+import com.platform.model.User;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.session.Session;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,6 +35,26 @@ public class ApplicationController {
 
 	protected String getRealPath(){
 		return request.getSession().getServletContext().getRealPath("/");
+	}
+
+	private Subject getCurrentSubject() {
+		return SecurityUtils.getSubject();
+	}
+
+	protected void currentSubjectLogout() {
+		try {
+			getCurrentSubject().logout();
+		}catch (Exception e){
+			System.out.print("登出失败");
+		}
+	}
+
+	protected Session getCurrentSession() {
+		return getCurrentSubject().getSession();
+	}
+
+	protected User getCurrentUser() {
+		return (User) getCurrentSubject().getPrincipal();
 	}
 
 }

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.platform.dao.DiseaseInfoDao">
+
+    <!-- 保存爬取的菜单 -->
+    <insert id="spiderMenu" parameterType="java.util.List">
+        insert into disease_menu(
+            create_time,
+            update_time,
+            status,
+            name,
+            url
+        )values
+        <foreach collection="list" item="item" separator="," index="">
+        (
+            NOW(),
+            NOW(),
+            1,
+            #{item.name,jdbcType=VARCHAR},
+            #{item.url,jdbcType=VARCHAR}
+        )
+        </foreach>
+    </insert>
+
+    <!-- 保存爬取的疾病列表 -->
+    <insert id="spiderList" parameterType="java.util.List">
+        insert into disease_list(
+            create_time,
+            update_time,
+            status,
+            name,
+            url,
+            type
+        ) values
+        <foreach collection="list" index="" item="item" separator=",">
+        (
+            NOW(),
+            NOW(),
+            1,
+            concat(#{item.name,jdbcType=VARCHAR},'jbzs/'),
+            #{item.url,jdbcType=VARCHAR},
+            #{item.type,jdbcType=INTEGER}
+        )
+        </foreach>
+    </insert>
+
+    <!-- 保存爬取的详情 -->
+    <update id="spiderDetail" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="" separator=";">
+            update disease_list
+            <set>
+                update_time = NOW(),
+                description = #{item.desc},
+                is_yibao = #{item.isYiBao},
+                other_name = #{item.otherName},
+                location = #{item.location},
+                infectivity = #{item.infectivity},
+                population = #{item.population},
+                symptom = #{item.symptom},
+                concurrent_disease = #{item.concurrentDisease},
+                department = #{item.department},
+                cost = #{item.cost},
+                treatment_rate = #{item.treatmentRate},
+                treatment_cycle = #{item.treatmentCycle},
+                therapeutic_method = #{item.therapeuticMethod},
+                correlation_check = #{item.correlationCheck},
+                drugs = #{item.drugs},
+                best_treatment_time = #{item.bestTreatmentTime},
+                visit_time = #{item.visitTime},
+                referral_frequency = #{item.referralFrequency},
+                preparement = #{item.preparement}
+            </set>
+            where id = #{item.id}
+        </foreach>
+    </update>
+
+    <resultMap id="diseaseListMap" type="com.platform.model.DiseaseInfo">
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="description" property="desc"/>
+        <result column="is_yibao" property="isYiBao"/>
+        <result column="other_name" property="otherName"/>
+        <result column="concurrent_disease" property="concurrentDisease"/>
+        <result column="treatment_rate" property="treatmentRate"/>
+        <result column="treatment_cycle" property="treatmentCycle"/>
+        <result column="therapeutic_method" property="therapeuticMethod"/>
+        <result column="correlation_check" property="correlationCheck"/>
+        <result column="best_treatment_time" property="bestTreatmentTime"/>
+        <result column="visit_time" property="visitTime"/>
+        <result column="referral_frequency" property="referralFrequency"/>
+    </resultMap>
+
+    <!-- 获取疾病列表 -->
+    <select id="list" parameterType="java.util.HashMap" resultType="com.platform.model.DiseaseInfo" resultMap="diseaseListMap">
+        select
+            dl.*,
+            dm.name as typeName
+        from disease_list as dl
+        left join disease_menu as dm on dl.type = dm.id
+        <where>
+            dl.status != 0
+            <if test="type != null and type != ''">
+                and dl.type = #{type}
+            </if>
+            <if test="lastId != null and lastId != ''">
+                and dl.id > #{lastId}
+            </if>
+            <if test="search != null and search != ''">
+                and (dl.name like concat('%',#{search},'%') or dl.other_name like concat('%',#{search},'%'))
+            </if>
+        </where>
+        limit
+        <if test="offset != null">
+            #{offset},
+        </if>
+        <if test="limit != null">
+            #{limit}
+        </if>
+    </select>
+
+    <!-- 列表总数 -->
+    <select id="count" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+        select count(*)
+        from disease_list as dl
+        left join disease_menu as dm on dl.type = dm.id
+        <where>
+            dl.status != 0
+            <if test="type != null and type != ''">
+                and dl.type = #{type}
+            </if>
+            <if test="lastId != null and lastId != ''">
+                and dl.id > #{lastId}
+            </if>
+        </where>
+    </select>
+
+</mapper>

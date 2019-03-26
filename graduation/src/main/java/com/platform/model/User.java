@@ -1,6 +1,7 @@
 package com.platform.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
@@ -18,12 +19,8 @@ public class User {
     private Integer role;
     private String roleName;
     private String loginAccount;
-    private List<MultipartFile> avatorFile;
+    private List<MultipartFile> avatorFile = null;
     private String avator;//头像路径
-
-    public User() {
-        this.avatorFile = null;
-    }
 
     public Integer getId() {
         return id;

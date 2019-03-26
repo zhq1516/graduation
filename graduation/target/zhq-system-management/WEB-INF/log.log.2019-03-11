@@ -1,0 +1,228 @@
+2019-03-11 12:03:37  [ RMI TCP Connection(2)-127.0.0.1:4558 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization started
+2019-03-11 12:03:37  [ RMI TCP Connection(2)-127.0.0.1:4579 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 12:03:37 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 12:03:37  [ RMI TCP Connection(2)-127.0.0.1:4581 ] - [ INFO ]  Loading XML bean definitions from class path resource [dispatcher-servlet.xml]
+2019-03-11 12:03:38  [ RMI TCP Connection(2)-127.0.0.1:5850 ] - [ INFO ]  Mapped "{[/article]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.ArticleManageController.index()
+2019-03-11 12:03:38  [ RMI TCP Connection(2)-127.0.0.1:5856 ] - [ INFO ]  Mapped "{[/article/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.ArticleManageController.list(java.lang.String)
+2019-03-11 12:03:38  [ RMI TCP Connection(2)-127.0.0.1:5863 ] - [ INFO ]  Mapped "{[/post/list]}" onto public java.lang.Object com.platform.controller.PostInfoController.list()
+2019-03-11 12:03:38  [ RMI TCP Connection(2)-127.0.0.1:5881 ] - [ INFO ]  Mapped "{[/post/detail]}" onto public java.lang.Object com.platform.controller.PostInfoController.detail(java.lang.Integer)
+2019-03-11 12:03:38  [ RMI TCP Connection(2)-127.0.0.1:5893 ] - [ INFO ]  Mapped "{[/user]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.UserManageController.index()
+2019-03-11 12:03:38  [ RMI TCP Connection(2)-127.0.0.1:5896 ] - [ INFO ]  Mapped "{[/user/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.list(java.lang.String)
+2019-03-11 12:03:38  [ RMI TCP Connection(2)-127.0.0.1:5897 ] - [ INFO ]  Mapped "{[/user/upload/avator]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.upLoadAvator()
+2019-03-11 12:03:40  [ RMI TCP Connection(2)-127.0.0.1:7341 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 12:03:37 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 12:03:40  [ RMI TCP Connection(2)-127.0.0.1:7572 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 12:03:37 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 12:03:40  [ RMI TCP Connection(2)-127.0.0.1:7843 ] - [ INFO ]  Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2019-03-11 12:03:41  [ RMI TCP Connection(2)-127.0.0.1:8233 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization completed in 3664 ms
+2019-03-11 12:03:46  [ http-nio-8080-exec-2:13382 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face3.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 12:03:46  [ http-nio-8080-exec-6:13384 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face4.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 12:03:47  [ http-nio-8080-exec-3:13977 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/avatar.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 12:03:47  [ http-nio-8080-exec-1:14022 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/about.png] in DispatcherServlet with name 'springMVC'
+2019-03-11 12:03:48  [ http-nio-8080-exec-8:15473 ] - [ WARN ]  No mapping found for HTTP request with URI [/favicon.ico] in DispatcherServlet with name 'springMVC'
+2019-03-11 12:41:01  [ main:2248521 ] - [ INFO ]  Closing WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 12:03:37 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 12:41:31  [ RMI TCP Connection(3)-127.0.0.1:3541 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization started
+2019-03-11 12:41:31  [ RMI TCP Connection(3)-127.0.0.1:3581 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 12:41:31 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 12:41:31  [ RMI TCP Connection(3)-127.0.0.1:3584 ] - [ INFO ]  Loading XML bean definitions from class path resource [dispatcher-servlet.xml]
+2019-03-11 12:41:33  [ RMI TCP Connection(3)-127.0.0.1:5743 ] - [ INFO ]  Mapped "{[/article]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.ArticleManageController.index()
+2019-03-11 12:41:33  [ RMI TCP Connection(3)-127.0.0.1:5758 ] - [ INFO ]  Mapped "{[/article/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.ArticleManageController.list(java.lang.String)
+2019-03-11 12:41:33  [ RMI TCP Connection(3)-127.0.0.1:5763 ] - [ INFO ]  Mapped "{[/post/list]}" onto public java.lang.Object com.platform.controller.PostInfoController.list()
+2019-03-11 12:41:33  [ RMI TCP Connection(3)-127.0.0.1:5764 ] - [ INFO ]  Mapped "{[/post/detail]}" onto public java.lang.Object com.platform.controller.PostInfoController.detail(java.lang.Integer)
+2019-03-11 12:41:33  [ RMI TCP Connection(3)-127.0.0.1:5794 ] - [ INFO ]  Mapped "{[/user]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.UserManageController.index()
+2019-03-11 12:41:33  [ RMI TCP Connection(3)-127.0.0.1:5802 ] - [ INFO ]  Mapped "{[/user/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.list(java.lang.String)
+2019-03-11 12:41:33  [ RMI TCP Connection(3)-127.0.0.1:5803 ] - [ INFO ]  Mapped "{[/user/upload/avator]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.upLoadAvator()
+2019-03-11 12:41:36  [ RMI TCP Connection(3)-127.0.0.1:8387 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 12:41:31 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 12:41:37  [ RMI TCP Connection(3)-127.0.0.1:8980 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 12:41:31 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 12:41:37  [ RMI TCP Connection(3)-127.0.0.1:9394 ] - [ INFO ]  Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2019-03-11 12:41:38  [ RMI TCP Connection(3)-127.0.0.1:9896 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization completed in 6328 ms
+2019-03-11 12:41:43  [ http-nio-8080-exec-6:15735 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face3.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 12:41:43  [ http-nio-8080-exec-5:15746 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face4.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 12:41:45  [ http-nio-8080-exec-7:16982 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/avatar.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 12:41:45  [ http-nio-8080-exec-8:16984 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/about.png] in DispatcherServlet with name 'springMVC'
+2019-03-11 13:22:58  [ http-nio-8080-exec-5:2490250 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face4.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 13:22:58  [ http-nio-8080-exec-3:2490250 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face3.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 13:22:58  [ http-nio-8080-exec-2:2490423 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/avatar.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 13:22:58  [ http-nio-8080-exec-7:2490424 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/about.png] in DispatcherServlet with name 'springMVC'
+2019-03-11 13:23:15  [ http-nio-8080-exec-1:2507796 ] - [ WARN ]  No mapping found for HTTP request with URI [/post/addReadNumber] in DispatcherServlet with name 'springMVC'
+2019-03-11 13:23:32  [ main:2524256 ] - [ INFO ]  Closing WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 12:41:31 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 13:24:01  [ RMI TCP Connection(5)-127.0.0.1:4254 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization started
+2019-03-11 13:24:01  [ RMI TCP Connection(5)-127.0.0.1:4263 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 13:24:01 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 13:24:01  [ RMI TCP Connection(5)-127.0.0.1:4265 ] - [ INFO ]  Loading XML bean definitions from class path resource [dispatcher-servlet.xml]
+2019-03-11 13:24:02  [ RMI TCP Connection(5)-127.0.0.1:5835 ] - [ INFO ]  Mapped "{[/article]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.ArticleManageController.index()
+2019-03-11 13:24:02  [ RMI TCP Connection(5)-127.0.0.1:5839 ] - [ INFO ]  Mapped "{[/article/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.ArticleManageController.list(java.lang.String)
+2019-03-11 13:24:02  [ RMI TCP Connection(5)-127.0.0.1:5844 ] - [ INFO ]  Mapped "{[/post/list]}" onto public java.lang.Object com.platform.controller.PostInfoController.list()
+2019-03-11 13:24:02  [ RMI TCP Connection(5)-127.0.0.1:5845 ] - [ INFO ]  Mapped "{[/post/detail]}" onto public java.lang.Object com.platform.controller.PostInfoController.detail(java.lang.Integer)
+2019-03-11 13:24:02  [ RMI TCP Connection(5)-127.0.0.1:5846 ] - [ INFO ]  Mapped "{[/post/addReadNumber]}" onto public java.lang.Object com.platform.controller.PostInfoController.addReadNumber(java.lang.Integer)
+2019-03-11 13:24:02  [ RMI TCP Connection(5)-127.0.0.1:5855 ] - [ INFO ]  Mapped "{[/user]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.UserManageController.index()
+2019-03-11 13:24:02  [ RMI TCP Connection(5)-127.0.0.1:5856 ] - [ INFO ]  Mapped "{[/user/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.list(java.lang.String)
+2019-03-11 13:24:02  [ RMI TCP Connection(5)-127.0.0.1:5857 ] - [ INFO ]  Mapped "{[/user/upload/avator]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.upLoadAvator()
+2019-03-11 13:24:04  [ RMI TCP Connection(5)-127.0.0.1:7403 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 13:24:01 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 13:24:04  [ RMI TCP Connection(5)-127.0.0.1:7728 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 13:24:01 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 13:24:04  [ RMI TCP Connection(5)-127.0.0.1:8010 ] - [ INFO ]  Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2019-03-11 13:24:05  [ RMI TCP Connection(5)-127.0.0.1:8340 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization completed in 4085 ms
+2019-03-11 13:24:10  [ http-nio-8080-exec-6:13962 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face3.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 13:24:10  [ http-nio-8080-exec-5:13975 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face4.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 13:24:10  [ http-nio-8080-exec-8:14079 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/about.png] in DispatcherServlet with name 'springMVC'
+2019-03-11 13:24:10  [ http-nio-8080-exec-7:14079 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/avatar.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 14:39:06  [ main:4509987 ] - [ INFO ]  Closing WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 13:24:01 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 14:39:35  [ RMI TCP Connection(3)-127.0.0.1:4244 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization started
+2019-03-11 14:39:35  [ RMI TCP Connection(3)-127.0.0.1:4251 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 14:39:35 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 14:39:35  [ RMI TCP Connection(3)-127.0.0.1:4253 ] - [ INFO ]  Loading XML bean definitions from class path resource [dispatcher-servlet.xml]
+2019-03-11 14:39:37  [ RMI TCP Connection(3)-127.0.0.1:5668 ] - [ INFO ]  Mapped "{[/article]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.ArticleManageController.index()
+2019-03-11 14:39:37  [ RMI TCP Connection(3)-127.0.0.1:5671 ] - [ INFO ]  Mapped "{[/article/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.ArticleManageController.list(java.lang.String)
+2019-03-11 14:39:37  [ RMI TCP Connection(3)-127.0.0.1:5677 ] - [ INFO ]  Mapped "{[/post/collect]}" onto public java.lang.Object com.platform.controller.PostInfoController.collect(java.lang.Integer,java.lang.Integer)
+2019-03-11 14:39:37  [ RMI TCP Connection(3)-127.0.0.1:5678 ] - [ INFO ]  Mapped "{[/post/read]}" onto public java.lang.Object com.platform.controller.PostInfoController.read(java.lang.Integer,java.lang.Integer)
+2019-03-11 14:39:37  [ RMI TCP Connection(3)-127.0.0.1:5679 ] - [ INFO ]  Mapped "{[/post/list]}" onto public java.lang.Object com.platform.controller.PostInfoController.list()
+2019-03-11 14:39:37  [ RMI TCP Connection(3)-127.0.0.1:5679 ] - [ INFO ]  Mapped "{[/post/detail]}" onto public java.lang.Object com.platform.controller.PostInfoController.detail(java.lang.Integer)
+2019-03-11 14:39:37  [ RMI TCP Connection(3)-127.0.0.1:5687 ] - [ INFO ]  Mapped "{[/user]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.UserManageController.index()
+2019-03-11 14:39:37  [ RMI TCP Connection(3)-127.0.0.1:5688 ] - [ INFO ]  Mapped "{[/user/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.list(java.lang.String)
+2019-03-11 14:39:37  [ RMI TCP Connection(3)-127.0.0.1:5691 ] - [ INFO ]  Mapped "{[/user/upload/avator]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.upLoadAvator()
+2019-03-11 14:39:38  [ RMI TCP Connection(3)-127.0.0.1:6852 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 14:39:35 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 14:39:38  [ RMI TCP Connection(3)-127.0.0.1:7011 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 14:39:35 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 14:39:38  [ RMI TCP Connection(3)-127.0.0.1:7183 ] - [ INFO ]  Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2019-03-11 14:39:39  [ RMI TCP Connection(3)-127.0.0.1:7424 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization completed in 3179 ms
+2019-03-11 14:39:44  [ http-nio-8080-exec-6:12636 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face4.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 14:39:44  [ http-nio-8080-exec-10:12640 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face3.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 14:39:44  [ http-nio-8080-exec-1:13139 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/avatar.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 14:39:44  [ http-nio-8080-exec-3:13140 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/about.png] in DispatcherServlet with name 'springMVC'
+2019-03-11 15:53:23  [ main:4431598 ] - [ INFO ]  Closing WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 14:39:35 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 15:54:01  [ RMI TCP Connection(3)-127.0.0.1:5455 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization started
+2019-03-11 15:54:01  [ RMI TCP Connection(3)-127.0.0.1:5464 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 15:54:01 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 15:54:01  [ RMI TCP Connection(3)-127.0.0.1:5466 ] - [ INFO ]  Loading XML bean definitions from class path resource [dispatcher-servlet.xml]
+2019-03-11 15:54:03  [ RMI TCP Connection(3)-127.0.0.1:7365 ] - [ INFO ]  Mapped "{[/article]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.ArticleManageController.index()
+2019-03-11 15:54:03  [ RMI TCP Connection(3)-127.0.0.1:7368 ] - [ INFO ]  Mapped "{[/article/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.ArticleManageController.list(java.lang.String)
+2019-03-11 15:54:03  [ RMI TCP Connection(3)-127.0.0.1:7376 ] - [ INFO ]  Mapped "{[/post/collect]}" onto public java.lang.Object com.platform.controller.PostInfoController.collect(java.lang.Integer,java.lang.Integer)
+2019-03-11 15:54:03  [ RMI TCP Connection(3)-127.0.0.1:7377 ] - [ INFO ]  Mapped "{[/post/read]}" onto public java.lang.Object com.platform.controller.PostInfoController.read(java.lang.Integer,java.lang.Integer)
+2019-03-11 15:54:03  [ RMI TCP Connection(3)-127.0.0.1:7378 ] - [ INFO ]  Mapped "{[/post/list]}" onto public java.lang.Object com.platform.controller.PostInfoController.list()
+2019-03-11 15:54:03  [ RMI TCP Connection(3)-127.0.0.1:7379 ] - [ INFO ]  Mapped "{[/post/detail]}" onto public java.lang.Object com.platform.controller.PostInfoController.detail(java.lang.Integer)
+2019-03-11 15:54:03  [ RMI TCP Connection(3)-127.0.0.1:7389 ] - [ INFO ]  Mapped "{[/user]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.UserManageController.index()
+2019-03-11 15:54:03  [ RMI TCP Connection(3)-127.0.0.1:7390 ] - [ INFO ]  Mapped "{[/user/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.list(java.lang.String)
+2019-03-11 15:54:03  [ RMI TCP Connection(3)-127.0.0.1:7393 ] - [ INFO ]  Mapped "{[/user/upload/avator]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.upLoadAvator()
+2019-03-11 15:54:03  [ RMI TCP Connection(3)-127.0.0.1:7397 ] - [ INFO ]  Mapped "{[/wx/user/register]}" onto public java.lang.Object com.platform.controller.WxUserInfoController.register(com.platform.model.WxUserInfo)
+2019-03-11 15:54:04  [ RMI TCP Connection(3)-127.0.0.1:8925 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 15:54:01 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 15:54:05  [ RMI TCP Connection(3)-127.0.0.1:9158 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 15:54:01 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 15:54:05  [ RMI TCP Connection(3)-127.0.0.1:9399 ] - [ INFO ]  Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2019-03-11 15:54:05  [ RMI TCP Connection(3)-127.0.0.1:9711 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization completed in 4254 ms
+2019-03-11 15:54:12  [ http-nio-8080-exec-7:16527 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face3.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 15:54:12  [ http-nio-8080-exec-8:16528 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face4.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 15:54:13  [ http-nio-8080-exec-6:17113 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/avatar.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 15:54:13  [ http-nio-8080-exec-9:17122 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/about.png] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:04:24  [ main:628520 ] - [ INFO ]  Closing WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 15:54:01 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:04:57  [ RMI TCP Connection(3)-127.0.0.1:4863 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization started
+2019-03-11 16:04:57  [ RMI TCP Connection(3)-127.0.0.1:4870 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 16:04:57 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:04:57  [ RMI TCP Connection(3)-127.0.0.1:4872 ] - [ INFO ]  Loading XML bean definitions from class path resource [dispatcher-servlet.xml]
+2019-03-11 16:04:59  [ RMI TCP Connection(3)-127.0.0.1:6121 ] - [ INFO ]  Mapped "{[/article]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.ArticleManageController.index()
+2019-03-11 16:04:59  [ RMI TCP Connection(3)-127.0.0.1:6125 ] - [ INFO ]  Mapped "{[/article/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.ArticleManageController.list(java.lang.String)
+2019-03-11 16:04:59  [ RMI TCP Connection(3)-127.0.0.1:6130 ] - [ INFO ]  Mapped "{[/post/collect]}" onto public java.lang.Object com.platform.controller.PostInfoController.collect(java.lang.Integer,java.lang.Integer)
+2019-03-11 16:04:59  [ RMI TCP Connection(3)-127.0.0.1:6131 ] - [ INFO ]  Mapped "{[/post/read]}" onto public java.lang.Object com.platform.controller.PostInfoController.read(java.lang.Integer,java.lang.Integer)
+2019-03-11 16:04:59  [ RMI TCP Connection(3)-127.0.0.1:6133 ] - [ INFO ]  Mapped "{[/post/list]}" onto public java.lang.Object com.platform.controller.PostInfoController.list()
+2019-03-11 16:04:59  [ RMI TCP Connection(3)-127.0.0.1:6138 ] - [ INFO ]  Mapped "{[/post/detail]}" onto public java.lang.Object com.platform.controller.PostInfoController.detail(java.lang.Integer)
+2019-03-11 16:04:59  [ RMI TCP Connection(3)-127.0.0.1:6146 ] - [ INFO ]  Mapped "{[/user]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.UserManageController.index()
+2019-03-11 16:04:59  [ RMI TCP Connection(3)-127.0.0.1:6147 ] - [ INFO ]  Mapped "{[/user/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.list(java.lang.String)
+2019-03-11 16:04:59  [ RMI TCP Connection(3)-127.0.0.1:6150 ] - [ INFO ]  Mapped "{[/user/upload/avator]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.upLoadAvator()
+2019-03-11 16:04:59  [ RMI TCP Connection(3)-127.0.0.1:6153 ] - [ INFO ]  Mapped "{[/wx/user/register]}" onto public java.lang.Object com.platform.controller.WxUserInfoController.register(com.platform.model.WxUserInfo)
+2019-03-11 16:05:00  [ RMI TCP Connection(3)-127.0.0.1:7433 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 16:04:57 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:05:00  [ RMI TCP Connection(3)-127.0.0.1:7632 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 16:04:57 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:05:00  [ RMI TCP Connection(3)-127.0.0.1:7817 ] - [ INFO ]  Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2019-03-11 16:05:00  [ RMI TCP Connection(3)-127.0.0.1:8022 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization completed in 3157 ms
+2019-03-11 16:05:06  [ http-nio-8080-exec-4:13371 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face4.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:05:06  [ http-nio-8080-exec-5:13380 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face3.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:05:06  [ http-nio-8080-exec-6:13650 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/avatar.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:05:06  [ http-nio-8080-exec-7:13664 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/about.png] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:19:15  [ main:862525 ] - [ INFO ]  Closing WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 16:04:57 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:19:43  [ RMI TCP Connection(3)-127.0.0.1:3074 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization started
+2019-03-11 16:19:43  [ RMI TCP Connection(3)-127.0.0.1:3082 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 16:19:43 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:19:43  [ RMI TCP Connection(3)-127.0.0.1:3084 ] - [ INFO ]  Loading XML bean definitions from class path resource [dispatcher-servlet.xml]
+2019-03-11 16:19:45  [ RMI TCP Connection(3)-127.0.0.1:5071 ] - [ INFO ]  Mapped "{[/article]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.ArticleManageController.index()
+2019-03-11 16:19:45  [ RMI TCP Connection(3)-127.0.0.1:5075 ] - [ INFO ]  Mapped "{[/article/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.ArticleManageController.list(java.lang.String)
+2019-03-11 16:19:45  [ RMI TCP Connection(3)-127.0.0.1:5081 ] - [ INFO ]  Mapped "{[/post/collect]}" onto public java.lang.Object com.platform.controller.PostInfoController.collect(java.lang.Integer,java.lang.Integer)
+2019-03-11 16:19:45  [ RMI TCP Connection(3)-127.0.0.1:5082 ] - [ INFO ]  Mapped "{[/post/read]}" onto public java.lang.Object com.platform.controller.PostInfoController.read(java.lang.Integer,java.lang.Integer)
+2019-03-11 16:19:45  [ RMI TCP Connection(3)-127.0.0.1:5083 ] - [ INFO ]  Mapped "{[/post/list]}" onto public java.lang.Object com.platform.controller.PostInfoController.list()
+2019-03-11 16:19:45  [ RMI TCP Connection(3)-127.0.0.1:5085 ] - [ INFO ]  Mapped "{[/post/detail]}" onto public java.lang.Object com.platform.controller.PostInfoController.detail(java.lang.Integer)
+2019-03-11 16:19:45  [ RMI TCP Connection(3)-127.0.0.1:5096 ] - [ INFO ]  Mapped "{[/user]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.UserManageController.index()
+2019-03-11 16:19:45  [ RMI TCP Connection(3)-127.0.0.1:5097 ] - [ INFO ]  Mapped "{[/user/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.list(java.lang.String)
+2019-03-11 16:19:45  [ RMI TCP Connection(3)-127.0.0.1:5100 ] - [ INFO ]  Mapped "{[/user/upload/avator]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.upLoadAvator()
+2019-03-11 16:19:45  [ RMI TCP Connection(3)-127.0.0.1:5103 ] - [ INFO ]  Mapped "{[/wx/user/register]}" onto public java.lang.Object com.platform.controller.WxUserInfoController.register(com.platform.model.WxUserInfo)
+2019-03-11 16:19:46  [ RMI TCP Connection(3)-127.0.0.1:6236 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 16:19:43 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:19:47  [ RMI TCP Connection(3)-127.0.0.1:6450 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 16:19:43 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:19:47  [ RMI TCP Connection(3)-127.0.0.1:6657 ] - [ INFO ]  Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2019-03-11 16:19:47  [ RMI TCP Connection(3)-127.0.0.1:6882 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization completed in 3808 ms
+2019-03-11 16:19:51  [ http-nio-8080-exec-3:11145 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face4.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:19:51  [ http-nio-8080-exec-5:11146 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face3.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:19:51  [ http-nio-8080-exec-6:11172 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/avatar.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:19:51  [ http-nio-8080-exec-8:11188 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/about.png] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:21:39  [ http-nio-8080-exec-1:119343 ] - [ INFO ]  Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2019-03-11 16:21:40  [ http-nio-8080-exec-1:120068 ] - [ INFO ]  SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2019-03-11 16:22:33  [ main:172647 ] - [ INFO ]  Closing WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 16:19:43 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:23:06  [ RMI TCP Connection(5)-127.0.0.1:6591 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization started
+2019-03-11 16:23:06  [ RMI TCP Connection(5)-127.0.0.1:6601 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 16:23:06 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:23:06  [ RMI TCP Connection(5)-127.0.0.1:6604 ] - [ INFO ]  Loading XML bean definitions from class path resource [dispatcher-servlet.xml]
+2019-03-11 16:23:08  [ RMI TCP Connection(5)-127.0.0.1:8372 ] - [ INFO ]  Mapped "{[/article]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.ArticleManageController.index()
+2019-03-11 16:23:08  [ RMI TCP Connection(5)-127.0.0.1:8376 ] - [ INFO ]  Mapped "{[/article/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.ArticleManageController.list(java.lang.String)
+2019-03-11 16:23:08  [ RMI TCP Connection(5)-127.0.0.1:8381 ] - [ INFO ]  Mapped "{[/post/collect]}" onto public java.lang.Object com.platform.controller.PostInfoController.collect(java.lang.Integer,java.lang.Integer)
+2019-03-11 16:23:08  [ RMI TCP Connection(5)-127.0.0.1:8382 ] - [ INFO ]  Mapped "{[/post/read]}" onto public java.lang.Object com.platform.controller.PostInfoController.read(java.lang.Integer,java.lang.Integer)
+2019-03-11 16:23:08  [ RMI TCP Connection(5)-127.0.0.1:8383 ] - [ INFO ]  Mapped "{[/post/list]}" onto public java.lang.Object com.platform.controller.PostInfoController.list()
+2019-03-11 16:23:08  [ RMI TCP Connection(5)-127.0.0.1:8384 ] - [ INFO ]  Mapped "{[/post/detail]}" onto public java.lang.Object com.platform.controller.PostInfoController.detail(java.lang.Integer)
+2019-03-11 16:23:08  [ RMI TCP Connection(5)-127.0.0.1:8393 ] - [ INFO ]  Mapped "{[/user]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.UserManageController.index()
+2019-03-11 16:23:08  [ RMI TCP Connection(5)-127.0.0.1:8395 ] - [ INFO ]  Mapped "{[/user/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.list(java.lang.String)
+2019-03-11 16:23:08  [ RMI TCP Connection(5)-127.0.0.1:8398 ] - [ INFO ]  Mapped "{[/user/upload/avator]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.upLoadAvator()
+2019-03-11 16:23:08  [ RMI TCP Connection(5)-127.0.0.1:8401 ] - [ INFO ]  Mapped "{[/wx/user/register]}" onto public java.lang.Object com.platform.controller.WxUserInfoController.register(com.platform.model.WxUserInfo)
+2019-03-11 16:23:09  [ RMI TCP Connection(5)-127.0.0.1:9499 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 16:23:06 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:23:09  [ RMI TCP Connection(5)-127.0.0.1:9672 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 16:23:06 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:23:09  [ RMI TCP Connection(5)-127.0.0.1:9987 ] - [ INFO ]  Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2019-03-11 16:23:10  [ RMI TCP Connection(5)-127.0.0.1:10205 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization completed in 3613 ms
+2019-03-11 16:23:15  [ http-nio-8080-exec-6:15469 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face4.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:23:15  [ http-nio-8080-exec-4:15474 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face3.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:23:15  [ http-nio-8080-exec-9:15653 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/about.png] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:23:15  [ http-nio-8080-exec-3:15657 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/avatar.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:24:02  [ http-nio-8080-exec-7:63041 ] - [ INFO ]  Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2019-03-11 16:24:03  [ http-nio-8080-exec-7:63208 ] - [ INFO ]  SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2019-03-11 16:37:30  [ main:870668 ] - [ INFO ]  Closing WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 16:23:06 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:37:58  [ RMI TCP Connection(3)-127.0.0.1:3617 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization started
+2019-03-11 16:37:58  [ RMI TCP Connection(3)-127.0.0.1:3648 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 16:37:58 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:37:58  [ RMI TCP Connection(3)-127.0.0.1:3650 ] - [ INFO ]  Loading XML bean definitions from class path resource [dispatcher-servlet.xml]
+2019-03-11 16:38:00  [ RMI TCP Connection(3)-127.0.0.1:5363 ] - [ INFO ]  Mapped "{[/article]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.ArticleManageController.index()
+2019-03-11 16:38:00  [ RMI TCP Connection(3)-127.0.0.1:5370 ] - [ INFO ]  Mapped "{[/article/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.ArticleManageController.list(java.lang.String)
+2019-03-11 16:38:00  [ RMI TCP Connection(3)-127.0.0.1:5383 ] - [ INFO ]  Mapped "{[/post/collect]}" onto public java.lang.Object com.platform.controller.PostInfoController.collect(java.lang.Integer,java.lang.Integer)
+2019-03-11 16:38:00  [ RMI TCP Connection(3)-127.0.0.1:5384 ] - [ INFO ]  Mapped "{[/post/read]}" onto public java.lang.Object com.platform.controller.PostInfoController.read(java.lang.Integer,java.lang.Integer)
+2019-03-11 16:38:00  [ RMI TCP Connection(3)-127.0.0.1:5385 ] - [ INFO ]  Mapped "{[/post/list]}" onto public java.lang.Object com.platform.controller.PostInfoController.list()
+2019-03-11 16:38:00  [ RMI TCP Connection(3)-127.0.0.1:5386 ] - [ INFO ]  Mapped "{[/post/detail]}" onto public java.lang.Object com.platform.controller.PostInfoController.detail(java.lang.Integer)
+2019-03-11 16:38:00  [ RMI TCP Connection(3)-127.0.0.1:5396 ] - [ INFO ]  Mapped "{[/user]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.UserManageController.index()
+2019-03-11 16:38:00  [ RMI TCP Connection(3)-127.0.0.1:5397 ] - [ INFO ]  Mapped "{[/user/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.list(java.lang.String)
+2019-03-11 16:38:00  [ RMI TCP Connection(3)-127.0.0.1:5400 ] - [ INFO ]  Mapped "{[/user/upload/avator]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.upLoadAvator()
+2019-03-11 16:38:00  [ RMI TCP Connection(3)-127.0.0.1:5402 ] - [ INFO ]  Mapped "{[/wx/user/register]}" onto public java.lang.Object com.platform.controller.WxUserInfoController.register(com.platform.model.WxUserInfo)
+2019-03-11 16:38:01  [ RMI TCP Connection(3)-127.0.0.1:6528 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 16:37:58 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:38:01  [ RMI TCP Connection(3)-127.0.0.1:6750 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 16:37:58 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:38:02  [ RMI TCP Connection(3)-127.0.0.1:7113 ] - [ INFO ]  Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2019-03-11 16:38:02  [ RMI TCP Connection(3)-127.0.0.1:7387 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization completed in 3769 ms
+2019-03-11 16:38:06  [ http-nio-8080-exec-5:11025 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face3.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:38:06  [ http-nio-8080-exec-3:11026 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face4.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:38:06  [ http-nio-8080-exec-6:11147 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/avatar.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:38:06  [ http-nio-8080-exec-7:11147 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/about.png] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:45:13  [ main:438110 ] - [ INFO ]  Closing WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 16:37:58 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:45:45  [ RMI TCP Connection(3)-127.0.0.1:4155 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization started
+2019-03-11 16:45:45  [ RMI TCP Connection(3)-127.0.0.1:4164 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 16:45:45 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:45:45  [ RMI TCP Connection(3)-127.0.0.1:4165 ] - [ INFO ]  Loading XML bean definitions from class path resource [dispatcher-servlet.xml]
+2019-03-11 16:45:46  [ RMI TCP Connection(3)-127.0.0.1:5423 ] - [ INFO ]  Mapped "{[/article]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.ArticleManageController.index()
+2019-03-11 16:45:46  [ RMI TCP Connection(3)-127.0.0.1:5428 ] - [ INFO ]  Mapped "{[/article/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.ArticleManageController.list(java.lang.String)
+2019-03-11 16:45:46  [ RMI TCP Connection(3)-127.0.0.1:5433 ] - [ INFO ]  Mapped "{[/post/collect]}" onto public java.lang.Object com.platform.controller.PostInfoController.collect(java.lang.Integer,java.lang.Integer)
+2019-03-11 16:45:46  [ RMI TCP Connection(3)-127.0.0.1:5434 ] - [ INFO ]  Mapped "{[/post/read]}" onto public java.lang.Object com.platform.controller.PostInfoController.read(java.lang.Integer,java.lang.Integer)
+2019-03-11 16:45:46  [ RMI TCP Connection(3)-127.0.0.1:5435 ] - [ INFO ]  Mapped "{[/post/list]}" onto public java.lang.Object com.platform.controller.PostInfoController.list()
+2019-03-11 16:45:46  [ RMI TCP Connection(3)-127.0.0.1:5436 ] - [ INFO ]  Mapped "{[/post/detail]}" onto public java.lang.Object com.platform.controller.PostInfoController.detail(java.lang.Integer)
+2019-03-11 16:45:46  [ RMI TCP Connection(3)-127.0.0.1:5446 ] - [ INFO ]  Mapped "{[/user]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.UserManageController.index()
+2019-03-11 16:45:46  [ RMI TCP Connection(3)-127.0.0.1:5447 ] - [ INFO ]  Mapped "{[/user/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.list(java.lang.String)
+2019-03-11 16:45:46  [ RMI TCP Connection(3)-127.0.0.1:5449 ] - [ INFO ]  Mapped "{[/user/upload/avator]}" onto public com.platform.model.vm.ApiResult com.platform.controller.UserManageController.upLoadAvator()
+2019-03-11 16:45:46  [ RMI TCP Connection(3)-127.0.0.1:5451 ] - [ INFO ]  Mapped "{[/wx/user/register]}" onto public java.lang.Object com.platform.controller.WxUserInfoController.register(com.platform.model.WxUserInfo)
+2019-03-11 16:45:47  [ RMI TCP Connection(3)-127.0.0.1:6450 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 16:45:45 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:45:47  [ RMI TCP Connection(3)-127.0.0.1:6629 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Mon Mar 11 16:45:45 CST 2019]; parent: Root WebApplicationContext
+2019-03-11 16:45:47  [ RMI TCP Connection(3)-127.0.0.1:6838 ] - [ INFO ]  Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2019-03-11 16:45:48  [ RMI TCP Connection(3)-127.0.0.1:7124 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization completed in 2968 ms
+2019-03-11 16:45:52  [ http-nio-8080-exec-3:11420 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face3.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:45:52  [ http-nio-8080-exec-5:11437 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/face4.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:45:52  [ http-nio-8080-exec-6:11919 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/avatar.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 16:45:52  [ http-nio-8080-exec-7:11926 ] - [ WARN ]  No mapping found for HTTP request with URI [/img/about.png] in DispatcherServlet with name 'springMVC'
+2019-03-11 17:26:02  [ http-nio-8080-exec-3:2421994 ] - [ WARN ]  No mapping found for HTTP request with URI [/article/img/face4.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 17:26:02  [ http-nio-8080-exec-2:2422069 ] - [ WARN ]  No mapping found for HTTP request with URI [/article/img/face3.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 17:26:03  [ http-nio-8080-exec-10:2422233 ] - [ WARN ]  No mapping found for HTTP request with URI [/article/img/avatar.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 17:26:03  [ http-nio-8080-exec-5:2422378 ] - [ WARN ]  No mapping found for HTTP request with URI [/article/img/about.png] in DispatcherServlet with name 'springMVC'
+2019-03-11 17:26:08  [ http-nio-8080-exec-9:2427629 ] - [ WARN ]  No mapping found for HTTP request with URI [/user/img/face4.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 17:26:08  [ http-nio-8080-exec-4:2427632 ] - [ WARN ]  No mapping found for HTTP request with URI [/user/img/face3.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 17:26:08  [ http-nio-8080-exec-6:2427855 ] - [ WARN ]  No mapping found for HTTP request with URI [/user/img/avatar.jpg] in DispatcherServlet with name 'springMVC'
+2019-03-11 17:26:08  [ http-nio-8080-exec-8:2427856 ] - [ WARN ]  No mapping found for HTTP request with URI [/user/img/about.png] in DispatcherServlet with name 'springMVC'

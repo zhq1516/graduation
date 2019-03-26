@@ -4,9 +4,9 @@ import com.platform.dao.ArticleInfoDao;
 import com.platform.model.ArticleInfo;
 import com.platform.model.vm.ApiResult;
 import com.platform.service.IArticleInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 
@@ -18,7 +18,7 @@ import java.util.List;
 @Service
 public class ArticleInfoServiceImpl implements IArticleInfoService {
 
-    @Resource
+    @Autowired
     private ArticleInfoDao articleInfoDao;
 
     @Override

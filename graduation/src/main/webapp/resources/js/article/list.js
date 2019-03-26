@@ -16,16 +16,18 @@ $(document).ready(function (e) {
     dataTableInit["aoColumns"] = [
         {"data":"id","sTitle":"请选择"},
         {"data":"title","sTitle":"文章标题"},
+        {"data":"typeName","sTitle":"文章类型"},
         {"data":"authorName","sTitle":"文章作者"},
         {"data":"createTime","sTitle":"创建时间"},
         {"data":"updateTime","sTitle":"最近修改时间"},
         {"data":"publishTime","sTitle":"最近推送时间"},
-        {"data":"collectNumber","sTitle":"收藏次数"},
-        {"data":"upNumber","sTitle":"点赞次数"},
+        {"data":"collectNumber","sTitle":"收藏数"},
+        {"data":"upNumber","sTitle":"点赞数"},
+        {"data":"commentNumber","sTitle":"评论数"},
         {"data":"status","sTitle":"状态"}
     ];
 
-    //
+    // 定义列
     dataTableInit["columnDefs"] = [
         {
             "defaultContent": "",
@@ -39,9 +41,13 @@ $(document).ready(function (e) {
             }
         },
         {
-            "aTargets": 8,
+            "aTargets": [7,8,9],
+            "bSortable": true
+        },
+        {
+            "aTargets": 10,
             "mRender":function (data,type,full) {
-                var result = data === 1 ? "正在推送":(data === 2 ? "已推送":"未推送");
+                var result = data === 1 ? "未推送":(data === 2 ? "推送中":(data === 3 ? "已推送":"状态不明"));
                 return result;
             }
         }
@@ -54,7 +60,8 @@ $(document).ready(function (e) {
             url: sSource,
             dataType: "json",
             data: {
-                aoData: JSON.stringify(aoData)
+                aoData: JSON.stringify(aoData),
+                formData: JSON.stringify($("#searchForm").serializeJSON())
             },
             success: function(resp) {
                 if (resp.status !== 200) {
@@ -69,5 +76,27 @@ $(document).ready(function (e) {
     // 表格
     var table = $("#dataTable").dataTable(dataTableInit).api();
 
+    // 查询
+    $("#search").on("click",function (e) {
+       table.ajax.reload();
+    });
+
+    // 重置
+    $("#reset").on("click",function (e) {
+        document.getElementById("searchForm").reset();
+        $(".selectpicker").selectpicker("refresh");
+    });
+
+    // 新增文章
+    $("#addArticle").on("click",function (e) {
+        //$("#articleTable").modal("show");
+        $(".page-content").hide();
+        $(".page-detail").show();
+    });
+
+    $("#back").on("click",function (e) {
+        $(".page-content").show();
+        $(".page-detail").hide();
+    });
 
 });

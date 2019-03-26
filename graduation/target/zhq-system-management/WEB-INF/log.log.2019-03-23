@@ -1,0 +1,244 @@
+2019-03-23 13:02:15  [ RMI TCP Connection(3)-127.0.0.1:5553 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization started
+2019-03-23 13:02:15  [ RMI TCP Connection(3)-127.0.0.1:5606 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'springMVC-servlet': startup date [Sat Mar 23 13:02:15 CST 2019]; parent: Root WebApplicationContext
+2019-03-23 13:02:15  [ RMI TCP Connection(3)-127.0.0.1:5609 ] - [ INFO ]  Loading XML bean definitions from class path resource [dispatcher-servlet.xml]
+2019-03-23 13:02:16  [ RMI TCP Connection(3)-127.0.0.1:6364 ] - [ INFO ]  Overriding bean definition for bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping' with a different definition: replacing [Root bean: class [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+2019-03-23 13:02:16  [ RMI TCP Connection(3)-127.0.0.1:6370 ] - [ INFO ]  Overriding bean definition for bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter' with a different definition: replacing [Root bean: class [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+2019-03-23 13:02:16  [ RMI TCP Connection(3)-127.0.0.1:6371 ] - [ INFO ]  Overriding bean definition for bean 'mvcUriComponentsContributor' with a different definition: replacing [Root bean: class [org.springframework.web.servlet.config.AnnotationDrivenBeanDefinitionParser$CompositeUriComponentsContributorFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.web.servlet.config.AnnotationDrivenBeanDefinitionParser$CompositeUriComponentsContributorFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+2019-03-23 13:02:17  [ RMI TCP Connection(3)-127.0.0.1:7879 ] - [ INFO ]  Mapped "{[/article]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.manage.ArticleManageController.index()
+2019-03-23 13:02:17  [ RMI TCP Connection(3)-127.0.0.1:7883 ] - [ INFO ]  Mapped "{[/article/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.manage.ArticleManageController.list(java.lang.String,java.lang.String)
+2019-03-23 13:02:17  [ RMI TCP Connection(3)-127.0.0.1:7890 ] - [ INFO ]  Mapped "{[/user]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.manage.UserManageController.index()
+2019-03-23 13:02:17  [ RMI TCP Connection(3)-127.0.0.1:7894 ] - [ INFO ]  Mapped "{[/user/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.manage.UserManageController.list(java.lang.String,java.lang.String)
+2019-03-23 13:02:17  [ RMI TCP Connection(3)-127.0.0.1:7896 ] - [ INFO ]  Mapped "{[/user/save]}" onto public com.platform.model.vm.ApiResult com.platform.controller.manage.UserManageController.save(com.platform.model.User)
+2019-03-23 13:02:17  [ RMI TCP Connection(3)-127.0.0.1:7898 ] - [ INFO ]  Mapped "{[/user/detail]}" onto public com.platform.model.vm.ApiResult com.platform.controller.manage.UserManageController.detail(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 13:02:17  [ RMI TCP Connection(3)-127.0.0.1:7899 ] - [ INFO ]  Mapped "{[/user/operation]}" onto public com.platform.model.vm.ApiResult com.platform.controller.manage.UserManageController.operation(java.util.List<java.lang.Integer>,java.lang.Integer)
+2019-03-23 13:02:17  [ RMI TCP Connection(3)-127.0.0.1:7911 ] - [ INFO ]  Mapped "{[/wx/comment/list]}" onto public java.lang.Object com.platform.controller.wx.CommentInfoController.list(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 13:02:17  [ RMI TCP Connection(3)-127.0.0.1:7920 ] - [ INFO ]  Mapped "{[/wx/post]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.wx.PostInfoController.index()
+2019-03-23 13:02:17  [ RMI TCP Connection(3)-127.0.0.1:7922 ] - [ INFO ]  Mapped "{[/wx/post/collect]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.collect(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 13:02:17  [ RMI TCP Connection(3)-127.0.0.1:7924 ] - [ INFO ]  Mapped "{[/wx/post/read]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.read(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 13:02:17  [ RMI TCP Connection(3)-127.0.0.1:7927 ] - [ INFO ]  Mapped "{[/wx/post/list]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.list(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 13:02:17  [ RMI TCP Connection(3)-127.0.0.1:7930 ] - [ INFO ]  Mapped "{[/wx/post/comment]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.comment(com.platform.model.Comment)
+2019-03-23 13:02:17  [ RMI TCP Connection(3)-127.0.0.1:7932 ] - [ INFO ]  Mapped "{[/wx/post/up]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.up(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 13:02:17  [ RMI TCP Connection(3)-127.0.0.1:7934 ] - [ INFO ]  Mapped "{[/wx/post/detail]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.detail(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 13:02:17  [ RMI TCP Connection(3)-127.0.0.1:7936 ] - [ INFO ]  Mapped "{[/wx/post/manage/list]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.manageList(java.lang.String,java.lang.String)
+2019-03-23 13:02:17  [ RMI TCP Connection(3)-127.0.0.1:7940 ] - [ INFO ]  Mapped "{[/wx/user]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.wx.WxUserInfoController.index()
+2019-03-23 13:02:17  [ RMI TCP Connection(3)-127.0.0.1:7941 ] - [ INFO ]  Mapped "{[/wx/user/register]}" onto public java.lang.Object com.platform.controller.wx.WxUserInfoController.register(com.platform.model.WxUserInfo)
+2019-03-23 13:02:17  [ RMI TCP Connection(3)-127.0.0.1:7943 ] - [ INFO ]  Mapped "{[/wx/user/list]}" onto public java.lang.Object com.platform.controller.wx.WxUserInfoController.list(java.lang.String,java.lang.String)
+2019-03-23 13:02:19  [ RMI TCP Connection(3)-127.0.0.1:9888 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Sat Mar 23 13:02:15 CST 2019]; parent: Root WebApplicationContext
+2019-03-23 13:02:20  [ RMI TCP Connection(3)-127.0.0.1:10466 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Sat Mar 23 13:02:15 CST 2019]; parent: Root WebApplicationContext
+2019-03-23 13:02:21  [ RMI TCP Connection(3)-127.0.0.1:11545 ] - [ INFO ]  Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2019-03-23 13:02:21  [ RMI TCP Connection(3)-127.0.0.1:11905 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization completed in 6332 ms
+2019-03-23 13:02:22  [ http-nio-8080-exec-1:12996 ] - [ WARN ]  No mapping found for HTTP request with URI [/login;jsessionid=79F2A3CAA4F32A03FEDC67A4D0619791] in DispatcherServlet with name 'springMVC'
+2019-03-23 13:02:22  [ http-nio-8080-exec-4:13042 ] - [ WARN ]  No mapping found for HTTP request with URI [/login;jsessionid=66AA043622CC14289F086F5CB9121B73] in DispatcherServlet with name 'springMVC'
+2019-03-23 13:02:25  [ http-nio-8080-exec-7:15438 ] - [ WARN ]  No mapping found for HTTP request with URI [/login] in DispatcherServlet with name 'springMVC'
+2019-03-23 14:45:37  [ http-nio-8080-exec-2:6207568 ] - [ WARN ]  No mapping found for HTTP request with URI [/login;jsessionid=8A1A08F9F1772D763457ABC5A79C3F1D] in DispatcherServlet with name 'springMVC'
+2019-03-23 14:46:01  [ http-nio-8080-exec-4:6231375 ] - [ WARN ]  No mapping found for HTTP request with URI [/login] in DispatcherServlet with name 'springMVC'
+2019-03-23 14:46:36  [ http-nio-8080-exec-8:6266641 ] - [ WARN ]  No mapping found for HTTP request with URI [/login] in DispatcherServlet with name 'springMVC'
+2019-03-23 14:46:54  [ http-nio-8080-exec-9:6284127 ] - [ WARN ]  No mapping found for HTTP request with URI [/login] in DispatcherServlet with name 'springMVC'
+2019-03-23 14:46:56  [ http-nio-8080-exec-10:6286358 ] - [ WARN ]  No mapping found for HTTP request with URI [/login] in DispatcherServlet with name 'springMVC'
+2019-03-23 14:47:03  [ http-nio-8080-exec-3:6293848 ] - [ WARN ]  No mapping found for HTTP request with URI [/login] in DispatcherServlet with name 'springMVC'
+2019-03-23 14:47:05  [ http-nio-8080-exec-2:6295744 ] - [ WARN ]  No mapping found for HTTP request with URI [/login] in DispatcherServlet with name 'springMVC'
+2019-03-23 14:48:25  [ http-nio-8080-exec-4:6375170 ] - [ WARN ]  No mapping found for HTTP request with URI [/login] in DispatcherServlet with name 'springMVC'
+2019-03-23 15:16:22  [ http-nio-8080-exec-8:8052823 ] - [ WARN ]  Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Can not deserialize instance of java.lang.String out of START_ARRAY token
+ at [Source: java.io.PushbackInputStream@2a7c81c9; line: 1, column: 44] (through reference chain: com.platform.model.Comment["image"]); nested exception is com.fasterxml.jackson.databind.JsonMappingException: Can not deserialize instance of java.lang.String out of START_ARRAY token
+ at [Source: java.io.PushbackInputStream@2a7c81c9; line: 1, column: 44] (through reference chain: com.platform.model.Comment["image"])
+2019-03-23 15:21:05  [ http-nio-8080-exec-8:8335252 ] - [ WARN ]  Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Can not deserialize instance of java.lang.String out of START_ARRAY token
+ at [Source: java.io.PushbackInputStream@733ef242; line: 1, column: 44] (through reference chain: com.platform.model.Comment["image"]); nested exception is com.fasterxml.jackson.databind.JsonMappingException: Can not deserialize instance of java.lang.String out of START_ARRAY token
+ at [Source: java.io.PushbackInputStream@733ef242; line: 1, column: 44] (through reference chain: com.platform.model.Comment["image"])
+2019-03-23 15:22:34  [ http-nio-8080-exec-7:8424824 ] - [ WARN ]  Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read document: Can not deserialize instance of java.lang.String out of START_ARRAY token
+ at [Source: java.io.PushbackInputStream@2f1ebbd9; line: 1, column: 68] (through reference chain: com.platform.model.Comment["image"]); nested exception is com.fasterxml.jackson.databind.JsonMappingException: Can not deserialize instance of java.lang.String out of START_ARRAY token
+ at [Source: java.io.PushbackInputStream@2f1ebbd9; line: 1, column: 68] (through reference chain: com.platform.model.Comment["image"])
+2019-03-23 16:14:13  [ main:11523888 ] - [ INFO ]  Closing WebApplicationContext for namespace 'springMVC-servlet': startup date [Sat Mar 23 13:02:15 CST 2019]; parent: Root WebApplicationContext
+2019-03-23 16:14:54  [ RMI TCP Connection(3)-127.0.0.1:5340 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization started
+2019-03-23 16:14:54  [ RMI TCP Connection(3)-127.0.0.1:5351 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'springMVC-servlet': startup date [Sat Mar 23 16:14:54 CST 2019]; parent: Root WebApplicationContext
+2019-03-23 16:14:54  [ RMI TCP Connection(3)-127.0.0.1:5352 ] - [ INFO ]  Loading XML bean definitions from class path resource [dispatcher-servlet.xml]
+2019-03-23 16:14:54  [ RMI TCP Connection(3)-127.0.0.1:5745 ] - [ INFO ]  Overriding bean definition for bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping' with a different definition: replacing [Root bean: class [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+2019-03-23 16:14:54  [ RMI TCP Connection(3)-127.0.0.1:5750 ] - [ INFO ]  Overriding bean definition for bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter' with a different definition: replacing [Root bean: class [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+2019-03-23 16:14:54  [ RMI TCP Connection(3)-127.0.0.1:5751 ] - [ INFO ]  Overriding bean definition for bean 'mvcUriComponentsContributor' with a different definition: replacing [Root bean: class [org.springframework.web.servlet.config.AnnotationDrivenBeanDefinitionParser$CompositeUriComponentsContributorFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.web.servlet.config.AnnotationDrivenBeanDefinitionParser$CompositeUriComponentsContributorFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+2019-03-23 16:14:56  [ RMI TCP Connection(3)-127.0.0.1:7054 ] - [ INFO ]  Mapped "{[/article]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.manage.ArticleManageController.index()
+2019-03-23 16:14:56  [ RMI TCP Connection(3)-127.0.0.1:7062 ] - [ INFO ]  Mapped "{[/article/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.manage.ArticleManageController.list(java.lang.String,java.lang.String)
+2019-03-23 16:14:56  [ RMI TCP Connection(3)-127.0.0.1:7080 ] - [ INFO ]  Mapped "{[/user]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.manage.UserManageController.index()
+2019-03-23 16:14:56  [ RMI TCP Connection(3)-127.0.0.1:7083 ] - [ INFO ]  Mapped "{[/user/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.manage.UserManageController.list(java.lang.String,java.lang.String)
+2019-03-23 16:14:56  [ RMI TCP Connection(3)-127.0.0.1:7086 ] - [ INFO ]  Mapped "{[/user/save]}" onto public com.platform.model.vm.ApiResult com.platform.controller.manage.UserManageController.save(com.platform.model.User)
+2019-03-23 16:14:56  [ RMI TCP Connection(3)-127.0.0.1:7088 ] - [ INFO ]  Mapped "{[/user/detail]}" onto public com.platform.model.vm.ApiResult com.platform.controller.manage.UserManageController.detail(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 16:14:56  [ RMI TCP Connection(3)-127.0.0.1:7093 ] - [ INFO ]  Mapped "{[/user/operation]}" onto public com.platform.model.vm.ApiResult com.platform.controller.manage.UserManageController.operation(java.util.List<java.lang.Integer>,java.lang.Integer)
+2019-03-23 16:14:56  [ RMI TCP Connection(3)-127.0.0.1:7105 ] - [ INFO ]  Mapped "{[/wx/comment/list]}" onto public java.lang.Object com.platform.controller.wx.CommentInfoController.list(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 16:14:56  [ RMI TCP Connection(3)-127.0.0.1:7119 ] - [ INFO ]  Mapped "{[/wx/post]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.wx.PostInfoController.index()
+2019-03-23 16:14:56  [ RMI TCP Connection(3)-127.0.0.1:7122 ] - [ INFO ]  Mapped "{[/wx/post/collect]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.collect(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 16:14:56  [ RMI TCP Connection(3)-127.0.0.1:7129 ] - [ INFO ]  Mapped "{[/wx/post/read]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.read(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 16:14:56  [ RMI TCP Connection(3)-127.0.0.1:7144 ] - [ INFO ]  Mapped "{[/wx/post/list]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.list(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 16:14:56  [ RMI TCP Connection(3)-127.0.0.1:7146 ] - [ INFO ]  Mapped "{[/wx/post/comment]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.comment(com.platform.model.Comment)
+2019-03-23 16:14:56  [ RMI TCP Connection(3)-127.0.0.1:7148 ] - [ INFO ]  Mapped "{[/wx/post/detail]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.detail(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 16:14:56  [ RMI TCP Connection(3)-127.0.0.1:7150 ] - [ INFO ]  Mapped "{[/wx/post/manage/list]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.manageList(java.lang.String,java.lang.String)
+2019-03-23 16:14:56  [ RMI TCP Connection(3)-127.0.0.1:7156 ] - [ INFO ]  Mapped "{[/wx/post/up]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.up(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 16:14:56  [ RMI TCP Connection(3)-127.0.0.1:7160 ] - [ INFO ]  Mapped "{[/wx/user]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.wx.WxUserInfoController.index()
+2019-03-23 16:14:56  [ RMI TCP Connection(3)-127.0.0.1:7161 ] - [ INFO ]  Mapped "{[/wx/user/register]}" onto public java.lang.Object com.platform.controller.wx.WxUserInfoController.register(com.platform.model.WxUserInfo)
+2019-03-23 16:14:56  [ RMI TCP Connection(3)-127.0.0.1:7162 ] - [ INFO ]  Mapped "{[/wx/user/list]}" onto public java.lang.Object com.platform.controller.wx.WxUserInfoController.list(java.lang.String,java.lang.String)
+2019-03-23 16:14:58  [ RMI TCP Connection(3)-127.0.0.1:8931 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Sat Mar 23 16:14:54 CST 2019]; parent: Root WebApplicationContext
+2019-03-23 16:14:58  [ RMI TCP Connection(3)-127.0.0.1:9453 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Sat Mar 23 16:14:54 CST 2019]; parent: Root WebApplicationContext
+2019-03-23 16:14:59  [ RMI TCP Connection(3)-127.0.0.1:10532 ] - [ INFO ]  Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2019-03-23 16:14:59  [ RMI TCP Connection(3)-127.0.0.1:10779 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization completed in 5438 ms
+2019-03-23 16:15:01  [ http-nio-8080-exec-2:12331 ] - [ WARN ]  No mapping found for HTTP request with URI [/login;jsessionid=7B0711E36455B929F66CE53D00B3C6F6] in DispatcherServlet with name 'springMVC'
+2019-03-23 16:15:01  [ http-nio-8080-exec-4:12373 ] - [ WARN ]  No mapping found for HTTP request with URI [/login;jsessionid=412B69BEEEF810A30592B0AF12BF13BD] in DispatcherServlet with name 'springMVC'
+2019-03-23 16:15:03  [ http-nio-8080-exec-7:14086 ] - [ WARN ]  No mapping found for HTTP request with URI [/login] in DispatcherServlet with name 'springMVC'
+2019-03-23 16:34:31  [ http-nio-8080-exec-1:1181920 ] - [ WARN ]  Failed to perform multipart cleanup for servlet request
+org.springframework.web.multipart.MultipartException: Could not parse multipart servlet request; nested exception is org.apache.commons.fileupload.FileUploadException: the request was rejected because no multipart boundary was found
+	at org.springframework.web.multipart.commons.CommonsMultipartResolver.parseRequest(CommonsMultipartResolver.java:165)
+	at org.springframework.web.multipart.commons.CommonsMultipartResolver$1.initializeMultipart(CommonsMultipartResolver.java:134)
+	at org.springframework.web.multipart.support.AbstractMultipartHttpServletRequest.getMultipartFiles(AbstractMultipartHttpServletRequest.java:126)
+	at org.springframework.web.multipart.support.AbstractMultipartHttpServletRequest.getMultiFileMap(AbstractMultipartHttpServletRequest.java:106)
+	at org.springframework.web.multipart.commons.CommonsMultipartResolver.cleanupMultipart(CommonsMultipartResolver.java:191)
+	at org.springframework.web.servlet.DispatcherServlet.cleanupMultipart(DispatcherServlet.java:1107)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:895)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:967)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:869)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:843)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:121)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:494)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:651)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:407)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:754)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1376)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.apache.commons.fileupload.FileUploadException: the request was rejected because no multipart boundary was found
+	at org.apache.commons.fileupload.FileUploadBase$FileItemIteratorImpl.<init>(FileUploadBase.java:990)
+	at org.apache.commons.fileupload.FileUploadBase.getItemIterator(FileUploadBase.java:310)
+	at org.apache.commons.fileupload.FileUploadBase.parseRequest(FileUploadBase.java:334)
+	at org.apache.commons.fileupload.servlet.ServletFileUpload.parseRequest(ServletFileUpload.java:115)
+	at org.springframework.web.multipart.commons.CommonsMultipartResolver.parseRequest(CommonsMultipartResolver.java:158)
+	... 54 more
+2019-03-23 16:40:40  [ http-nio-8080-exec-10:1551298 ] - [ WARN ]  Failed to perform multipart cleanup for servlet request
+org.springframework.web.multipart.MultipartException: Could not parse multipart servlet request; nested exception is org.apache.commons.fileupload.FileUploadException: the request was rejected because no multipart boundary was found
+	at org.springframework.web.multipart.commons.CommonsMultipartResolver.parseRequest(CommonsMultipartResolver.java:165)
+	at org.springframework.web.multipart.commons.CommonsMultipartResolver$1.initializeMultipart(CommonsMultipartResolver.java:134)
+	at org.springframework.web.multipart.support.AbstractMultipartHttpServletRequest.getMultipartFiles(AbstractMultipartHttpServletRequest.java:126)
+	at org.springframework.web.multipart.support.AbstractMultipartHttpServletRequest.getMultiFileMap(AbstractMultipartHttpServletRequest.java:106)
+	at org.springframework.web.multipart.commons.CommonsMultipartResolver.cleanupMultipart(CommonsMultipartResolver.java:191)
+	at org.springframework.web.servlet.DispatcherServlet.cleanupMultipart(DispatcherServlet.java:1107)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:895)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:967)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:869)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:843)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:121)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:494)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:651)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:407)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:754)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1376)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.apache.commons.fileupload.FileUploadException: the request was rejected because no multipart boundary was found
+	at org.apache.commons.fileupload.FileUploadBase$FileItemIteratorImpl.<init>(FileUploadBase.java:990)
+	at org.apache.commons.fileupload.FileUploadBase.getItemIterator(FileUploadBase.java:310)
+	at org.apache.commons.fileupload.FileUploadBase.parseRequest(FileUploadBase.java:334)
+	at org.apache.commons.fileupload.servlet.ServletFileUpload.parseRequest(ServletFileUpload.java:115)
+	at org.springframework.web.multipart.commons.CommonsMultipartResolver.parseRequest(CommonsMultipartResolver.java:158)
+	... 54 more
+2019-03-23 16:55:15  [ main:2425952 ] - [ INFO ]  Closing WebApplicationContext for namespace 'springMVC-servlet': startup date [Sat Mar 23 16:14:54 CST 2019]; parent: Root WebApplicationContext
+2019-03-23 16:55:52  [ RMI TCP Connection(3)-127.0.0.1:6919 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization started
+2019-03-23 16:55:52  [ RMI TCP Connection(3)-127.0.0.1:6939 ] - [ INFO ]  Refreshing WebApplicationContext for namespace 'springMVC-servlet': startup date [Sat Mar 23 16:55:52 CST 2019]; parent: Root WebApplicationContext
+2019-03-23 16:55:52  [ RMI TCP Connection(3)-127.0.0.1:6941 ] - [ INFO ]  Loading XML bean definitions from class path resource [dispatcher-servlet.xml]
+2019-03-23 16:55:53  [ RMI TCP Connection(3)-127.0.0.1:7322 ] - [ INFO ]  Overriding bean definition for bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping' with a different definition: replacing [Root bean: class [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+2019-03-23 16:55:53  [ RMI TCP Connection(3)-127.0.0.1:7326 ] - [ INFO ]  Overriding bean definition for bean 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter' with a different definition: replacing [Root bean: class [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+2019-03-23 16:55:53  [ RMI TCP Connection(3)-127.0.0.1:7327 ] - [ INFO ]  Overriding bean definition for bean 'mvcUriComponentsContributor' with a different definition: replacing [Root bean: class [org.springframework.web.servlet.config.AnnotationDrivenBeanDefinitionParser$CompositeUriComponentsContributorFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.web.servlet.config.AnnotationDrivenBeanDefinitionParser$CompositeUriComponentsContributorFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+2019-03-23 16:55:54  [ RMI TCP Connection(3)-127.0.0.1:8564 ] - [ INFO ]  Mapped "{[/article]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.manage.ArticleManageController.index()
+2019-03-23 16:55:54  [ RMI TCP Connection(3)-127.0.0.1:8569 ] - [ INFO ]  Mapped "{[/article/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.manage.ArticleManageController.list(java.lang.String,java.lang.String)
+2019-03-23 16:55:54  [ RMI TCP Connection(3)-127.0.0.1:8578 ] - [ INFO ]  Mapped "{[/user]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.manage.UserManageController.index()
+2019-03-23 16:55:54  [ RMI TCP Connection(3)-127.0.0.1:8579 ] - [ INFO ]  Mapped "{[/user/list]}" onto public com.platform.model.vm.ApiResult com.platform.controller.manage.UserManageController.list(java.lang.String,java.lang.String)
+2019-03-23 16:55:54  [ RMI TCP Connection(3)-127.0.0.1:8580 ] - [ INFO ]  Mapped "{[/user/save]}" onto public com.platform.model.vm.ApiResult com.platform.controller.manage.UserManageController.save(com.platform.model.User)
+2019-03-23 16:55:54  [ RMI TCP Connection(3)-127.0.0.1:8582 ] - [ INFO ]  Mapped "{[/user/detail]}" onto public com.platform.model.vm.ApiResult com.platform.controller.manage.UserManageController.detail(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 16:55:54  [ RMI TCP Connection(3)-127.0.0.1:8588 ] - [ INFO ]  Mapped "{[/user/operation]}" onto public com.platform.model.vm.ApiResult com.platform.controller.manage.UserManageController.operation(java.util.List<java.lang.Integer>,java.lang.Integer)
+2019-03-23 16:55:54  [ RMI TCP Connection(3)-127.0.0.1:8605 ] - [ INFO ]  Mapped "{[/wx/comment/list]}" onto public java.lang.Object com.platform.controller.wx.CommentInfoController.list(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 16:55:54  [ RMI TCP Connection(3)-127.0.0.1:8615 ] - [ INFO ]  Mapped "{[/wx/post]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.wx.PostInfoController.index()
+2019-03-23 16:55:54  [ RMI TCP Connection(3)-127.0.0.1:8616 ] - [ INFO ]  Mapped "{[/wx/post/collect]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.collect(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 16:55:54  [ RMI TCP Connection(3)-127.0.0.1:8618 ] - [ INFO ]  Mapped "{[/wx/post/read]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.read(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 16:55:54  [ RMI TCP Connection(3)-127.0.0.1:8619 ] - [ INFO ]  Mapped "{[/wx/post/list]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.list(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 16:55:54  [ RMI TCP Connection(3)-127.0.0.1:8620 ] - [ INFO ]  Mapped "{[/wx/post/comment]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.comment(com.platform.model.Comment)
+2019-03-23 16:55:54  [ RMI TCP Connection(3)-127.0.0.1:8621 ] - [ INFO ]  Mapped "{[/wx/post/detail]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.detail(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 16:55:54  [ RMI TCP Connection(3)-127.0.0.1:8623 ] - [ INFO ]  Mapped "{[/wx/post/up]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.up(java.util.HashMap<java.lang.String, java.lang.Object>)
+2019-03-23 16:55:54  [ RMI TCP Connection(3)-127.0.0.1:8624 ] - [ INFO ]  Mapped "{[/wx/post/manage/list]}" onto public java.lang.Object com.platform.controller.wx.PostInfoController.manageList(java.lang.String,java.lang.String)
+2019-03-23 16:55:54  [ RMI TCP Connection(3)-127.0.0.1:8628 ] - [ INFO ]  Mapped "{[/wx/user]}" onto public org.springframework.web.servlet.ModelAndView com.platform.controller.wx.WxUserInfoController.index()
+2019-03-23 16:55:54  [ RMI TCP Connection(3)-127.0.0.1:8630 ] - [ INFO ]  Mapped "{[/wx/user/register]}" onto public java.lang.Object com.platform.controller.wx.WxUserInfoController.register(com.platform.model.WxUserInfo)
+2019-03-23 16:55:54  [ RMI TCP Connection(3)-127.0.0.1:8631 ] - [ INFO ]  Mapped "{[/wx/user/list]}" onto public java.lang.Object com.platform.controller.wx.WxUserInfoController.list(java.lang.String,java.lang.String)
+2019-03-23 16:55:55  [ RMI TCP Connection(3)-127.0.0.1:10014 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Sat Mar 23 16:55:52 CST 2019]; parent: Root WebApplicationContext
+2019-03-23 16:55:56  [ RMI TCP Connection(3)-127.0.0.1:10451 ] - [ INFO ]  Looking for @ControllerAdvice: WebApplicationContext for namespace 'springMVC-servlet': startup date [Sat Mar 23 16:55:52 CST 2019]; parent: Root WebApplicationContext
+2019-03-23 16:55:56  [ RMI TCP Connection(3)-127.0.0.1:11259 ] - [ INFO ]  Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2019-03-23 16:55:57  [ RMI TCP Connection(3)-127.0.0.1:11490 ] - [ INFO ]  FrameworkServlet 'springMVC': initialization completed in 4557 ms
+2019-03-23 16:55:58  [ http-nio-8080-exec-2:12488 ] - [ WARN ]  No mapping found for HTTP request with URI [/login;jsessionid=5A95BEC3BF68E5C3F234474727929844] in DispatcherServlet with name 'springMVC'
+2019-03-23 16:55:58  [ http-nio-8080-exec-4:12517 ] - [ WARN ]  No mapping found for HTTP request with URI [/login;jsessionid=7B94DB2C6EA1BAD65FF5E62E351D3539] in DispatcherServlet with name 'springMVC'
+2019-03-23 16:55:59  [ http-nio-8080-exec-6:13803 ] - [ WARN ]  No mapping found for HTTP request with URI [/login] in DispatcherServlet with name 'springMVC'
+2019-03-23 17:38:55  [ main:2590077 ] - [ INFO ]  Closing WebApplicationContext for namespace 'springMVC-servlet': startup date [Sat Mar 23 16:55:52 CST 2019]; parent: Root WebApplicationContext

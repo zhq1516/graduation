@@ -10,24 +10,176 @@
         <result column="post_title" property="postTitle"/>
         <result column="post_content" property="postContent"/>
         <result column="post_img" property="postImage"/>
+        <result column="read_number" property="readNumber"/>
+        <result column="collect_number" property="collectNumber"/>
+        <result column="comment_number" property="commentNumber"/>
+        <result column="up_number" property="upNumber"/>
     </resultMap>
 
     <!-- 根据ID获取帖子详情 -->
-    <select id="detail" parameterType="java.lang.Integer" resultType="com.platform.model.PostInfo" resultMap="postMap">
-        select *
+    <select id="detail" parameterType="java.util.HashMap" resultType="com.platform.model.PostInfo" resultMap="postMap">
+        select
+            p.*,
+            wu.nick_name as posterName,
+            wu.avatar_url as avator,
+            if(r.user_id,1,0) as readStatus,
+            if(c.user_id,1,0) as collectStatus,
+            if(u.user_id,1,0) as upStatus
         from posts as p
-        where p.id = #{id}
+        left join wx_user as wu on p.poster_id = wu.id
+        left join (select post_id,user_id from post_user_operation where type='READ' and user_id = #{userId} GROUP BY user_id,post_id) as r on p.id = r.post_id
+        left join (select post_id,user_id from post_user_operation where type='COLLECT' and user_id = #{userId} GROUP BY user_id,post_id) as c on p.id = c.post_id
+        left join (select post_id,user_id from post_user_operation where type='UP' and user_id = #{userId} group by user_id,post_id) as u on p.id = u.post_id
+        <where>
+            p.id = #{postId}
+            and p.status = 1
+        </where>
     </select>
 
     <!-- 获取帖子列表 -->
     <select id="list" resultType="com.platform.model.PostInfo" resultMap="postMap">
         select
             p.*,
-            u.username as posterName,
-            u.avator as avator
+            wu.nick_name as posterName,
+            wu.avatar_url as avator
         from posts as p
-        left join user as u on p.poster_id = u.id
-        where p.status = 1
+        left join wx_user as wu on p.poster_id = wu.id
+        <where>
+            p.status != 0
+            <if test="posterName != null and posterName != ''">
+                and wu.nick_name = #{posterName}
+            </if>
+            <if test="postTitle != null and postTitle != ''">
+                and p.post_title like concat('%',#{postTitle},'%')
+            </if>
+            <if test="createTimeS != null and createTimeS != ''">
+                and p.create_time &gt;= #{createTimeS}
+            </if>
+            <if test="createTimeE != null and createTimeE != ''">
+                and p.create_time &lt;= #{createTimeE}
+            </if>
+        </where>
     </select>
+
+    <!-- 数量 -->
+    <select id="count" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+        select count(*)
+        from posts as p
+        left join wx_user as wu on p.poster_id = wu.id
+        <where>
+            p.status != 0
+            <if test="posterName != null and posterName != ''">
+                and wu.nick_name = #{posterName}
+            </if>
+            <if test="postTitle != null and postTitle != ''">
+                and p.post_title like concat('%',#{postTitle},'%')
+            </if>
+            <if test="createTimeS != null and createTimeS != ''">
+                and p.create_time &gt;= #{createTimeS}
+            </if>
+            <if test="createTimeE != null and createTimeE != ''">
+                and p.create_time &lt;= #{createTimeE}
+            </if>
+        </where>
+    </select>
+
+    <!-- 阅读量+1 -->
+    <insert id="read" parameterType="java.util.HashMap" useGeneratedKeys="true" keyProperty="id">
+        insert into post_user_operation(
+            create_time,
+            update_time,
+            status,
+            user_id,
+            post_id,
+            type
+        ) values (
+            NOW(),
+            NOW(),
+            1,
+            #{userId,jdbcType=INTEGER},
+            #{postId,jdbcType=INTEGER},
+            'READ'
+        )
+    </insert>
+
+    <!-- 收藏内容 -->
+    <insert id="collect" parameterType="java.util.HashMap" useGeneratedKeys="true" keyProperty="id">
+        insert into post_user_operation(
+            create_time,
+            update_time,
+            status,
+            user_id,
+            post_id,
+            type
+        ) values (
+            NOW(),
+            NOW(),
+            1,
+            #{userId,jdbcType=INTEGER},
+            #{postId,jdbcType=INTEGER},
+            'COLLECT'
+        )
+    </insert>
+
+
+    <!-- 取消收藏 -->
+    <delete id="cancelCollect" parameterType="java.util.HashMap">
+        delete from post_user_operation
+        where user_id = #{userId} and post_id = #{postId} and type = 'COLLECT'
+    </delete>
+
+    <!-- 点赞 -->
+    <insert id="up" parameterType="java.util.HashMap" useGeneratedKeys="true" keyProperty="id">
+        insert into post_user_operation(
+            create_time,
+            update_time,
+            status,
+            user_id,
+            post_id,
+            type
+        ) values (
+            NOW(),
+            NOW(),
+            1,
+            #{userId,jdbcType=INTEGER},
+            #{postId,jdbcType=INTEGER},
+            'UP'
+        )
+    </insert>
+
+    <!-- 取消点赞 -->
+    <delete id="cancelUp" parameterType="java.util.HashMap">
+        delete from post_user_operation
+        where post_id = #{postId} and user_id = #{userId} and type = 'UP'
+    </delete>
+
+    <!-- 发送评论 -->
+    <insert id="comment" parameterType="com.platform.model.Comment" useGeneratedKeys="true" keyProperty="id">
+        insert into comments(
+            create_time,
+            update_time,
+            status,
+            user_id,
+            post_id,
+            target_id,
+            content,
+            image
+        ) values (
+            NOW(),
+            NOW(),
+            1,
+            #{userId,jdbcType=INTEGER},
+            #{postId,jdbcType=INTEGER},
+            #{targetId,jdbcType=INTEGER},
+            #{content,jdbcType=VARCHAR},
+            #{image,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <!-- 删除评论 -->
+    <delete id="deleteComment" parameterType="com.platform.model.Comment">
+        delete from comments
+        where id = #{id}
+    </delete>
 
 </mapper>
