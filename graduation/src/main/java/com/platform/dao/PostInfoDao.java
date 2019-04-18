@@ -46,4 +46,19 @@ public interface PostInfoDao {
     // 删除评论
     Integer deleteComment(Comment model);
 
+    // 批量推送
+    Integer publish(List<Integer> ids);
+
+    // 批量取消推送
+    Integer cancelPublish(List<Integer> ids);
+
+    // 批量删除
+    Integer delete(List<Integer> ids);
+
+    // 新建文章
+    Integer create(PostInfo model);
+
+    // 修改文章
+    Integer update(PostInfo model);
+
 }

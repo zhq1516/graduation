@@ -14,13 +14,16 @@ public class User {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date updateTime;
     private Integer status;
-    private String userName;
+    private String username;
     private String password;
     private Integer role;
+    private String roleCode;
     private String roleName;
-    private String loginAccount;
+    private String realName;
+    private String phone;
     private List<MultipartFile> avatorFile = null;
     private String avator;//头像路径
+    private String job;
 
     public Integer getId() {
         return id;
@@ -46,12 +49,12 @@ public class User {
         this.updateTime = updateTime;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -70,6 +73,14 @@ public class User {
         this.role = role;
     }
 
+    public String getRoleCode() {
+        return roleCode;
+    }
+
+    public void setRoleCode(String roleCode) {
+        this.roleCode = roleCode;
+    }
+
     public String getRoleName() {
         return roleName;
     }
@@ -78,12 +89,20 @@ public class User {
         this.roleName = roleName;
     }
 
-    public String getLoginAccount() {
-        return loginAccount;
+    public String getRealName() {
+        return realName;
     }
 
-    public void setLoginAccount(String loginAccount) {
-        this.loginAccount = loginAccount;
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Integer getStatus() {
@@ -108,5 +127,13 @@ public class User {
 
     public void setAvator(String avator) {
         this.avator = avator;
+    }
+
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
     }
 }

@@ -75,6 +75,12 @@
         </foreach>
     </update>
 
+    <!-- 获取疾病类型列表 -->
+    <select id="typeList" resultType="com.platform.model.DiseaseType">
+        select *
+        from disease_menu
+    </select>
+
     <resultMap id="diseaseListMap" type="com.platform.model.DiseaseInfo">
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
@@ -99,7 +105,9 @@
         from disease_list as dl
         left join disease_menu as dm on dl.type = dm.id
         <where>
-            dl.status != 0
+            <if test="from == null">
+                dl.status != 0
+            </if>
             <if test="type != null and type != ''">
                 and dl.type = #{type}
             </if>
@@ -109,6 +117,18 @@
             <if test="search != null and search != ''">
                 and (dl.name like concat('%',#{search},'%') or dl.other_name like concat('%',#{search},'%'))
             </if>
+            <if test="name != null and name != ''">
+                and (dl.name like concat('%',#{name},'%') or dl.other_name like concat('%',#{name},'%'))
+            </if>
+            <if test="updateTimeS != null and updateTimeS != ''">
+                and dl.update_time &gt;= #{updateTimeS}
+            </if>
+            <if test="updateTimeE != null and updateTimeE != ''">
+                and dl.update_time &lt;= #{updateTimeE}
+            </if>
+            <if test="status != null and status != ''">
+                and dl.status = #{status}
+            </if>
         </where>
         limit
         <if test="offset != null">
@@ -116,6 +136,9 @@
         </if>
         <if test="limit != null">
             #{limit}
+        </if>
+        <if test="limit == null">
+            10
         </if>
     </select>
 
@@ -125,14 +148,51 @@
         from disease_list as dl
         left join disease_menu as dm on dl.type = dm.id
         <where>
-            dl.status != 0
+            <if test="from == null">
+                dl.status != 0
+            </if>
             <if test="type != null and type != ''">
                 and dl.type = #{type}
             </if>
             <if test="lastId != null and lastId != ''">
                 and dl.id > #{lastId}
             </if>
+            <if test="search != null and search != ''">
+                and (dl.name like concat('%',#{search},'%') or dl.other_name like concat('%',#{search},'%'))
+            </if>
+            <if test="name != null and name != ''">
+                and (dl.name like concat('%',#{name},'%') or dl.other_name like concat('%',#{name},'%'))
+            </if>
+            <if test="updateTimeS != null and updateTimeS != ''">
+                and dl.update_time &gt;= #{updateTimeS}
+            </if>
+            <if test="updateTimeE != null and updateTimeE != ''">
+                and dl.update_time &lt;= #{updateTimeE}
+            </if>
+            <if test="status != null and status != ''">
+                and dl.status = #{status}
+            </if>
         </where>
     </select>
+
+    <!-- 批量不可见 -->
+    <update id="setInvisible" parameterType="java.util.List">
+        update disease_list
+        set status = 0
+        where id in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+
+    <!-- 批量可见 -->
+    <update id="setVisible" parameterType="java.util.List">
+        update disease_list
+        set status = 1
+        where id in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
 
 </mapper>

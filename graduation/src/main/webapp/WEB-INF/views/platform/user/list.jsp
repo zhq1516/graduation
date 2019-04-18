@@ -22,6 +22,7 @@
             <button class="btn btn-color btn-sm" id="modifyUser">修改</button>
             <button class="btn btn-color btn-sm" id="deleteUser">删除</button>
             <button class="btn btn-color btn-sm" id="forbidUser">禁用</button>
+            <button class="btn btn-color btn-sm" id="unForbidUser">启用</button>
         </div>
     </div>
 
@@ -37,9 +38,17 @@
             </div>
             <div class="col-xs-4">
                 <div class="form-group">
-                    <label for="loginAccount" class="col-xs-5 col-padding-none control-label">登录账号：</label>
+                    <label for="phone" class="col-xs-5 col-padding-none control-label">联系方式：</label>
                     <div class="col-xs-7 col-padding-none">
-                        <input type="text" class="form-control" id="loginAccount" name="loginAccount" placeholder="请输入登录账号">
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="请输入手机号码">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="form-group">
+                    <label for="realName" class="col-xs-5 col-padding-none control-label">医生姓名：</label>
+                    <div class="col-xs-7 col-padding-none">
+                        <input type="text" class="form-control" id="realName" name="realName" placeholder="请输入医生姓名">
                     </div>
                 </div>
             </div>
@@ -85,7 +94,7 @@
     </form>
 
     <div class="page-list">
-        <table class="table table-bordered table-hover" style="white-space: nowrap" id="dataTable"></table>
+        <table class="table table-bordered" style="white-space: nowrap" id="dataTable"></table>
     </div>
 
     <%@include file="userTable.jsp"%>

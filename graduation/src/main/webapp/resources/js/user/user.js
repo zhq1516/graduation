@@ -22,16 +22,32 @@ $(document).ready(function () {
         $("#chooseAvator").trigger("click");
     });
 
-    // 用户表单
-    userForm = validateForm("#userInfoForm","user/save",table,function (e) {
-        //$("#userTable").modal("hide");
+    // 保存用户
+    $("#saveUser").on("click",function (e) {
+        var form = document.getElementById("userInfoForm");
+        var formData = new FormData(form);
+        var fileList = $("#chooseAvator")[0].files;
+        for(var i = 0;i < fileList.length;++i) {
+            formData.append("avatorFile",fileList[i]);
+        }
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", server_context + "user/save");
+        xhr.onload = function() {
+            if(xhr.status === 200){
+                alert("保存成功！");
+                table.ajax.reload();
+            }else{
+                alert("保存失败！");
+            }
+        };
+        xhr.send(formData);
     });
 
     // 重置表格信息
     $("#userInfoForm button[name='formReset']").on("click",function (e) {
-        userForm.resetForm();
-        $("#showAvator").attr("src","");
+        document.getElementById("userInfoForm").reset();
         $(".selectpicker").selectpicker("refresh");
+        $("#showAvator").attr("src","");
     });
 
 });

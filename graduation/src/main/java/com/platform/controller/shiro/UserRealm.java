@@ -24,7 +24,7 @@ public class UserRealm extends AuthorizingRealm {
 	 */
 	@PostConstruct
 	public void initCredentialsMatcher() {
-		//该句作用是重写shiro的密码验证，让shiro用我自己的验证
+		// 该句作用是重写shiro的密码验证，让shiro用我自己的验证
 		setCredentialsMatcher(new CustomCredentialsMatcher());
 	}
 	@Override
@@ -33,26 +33,26 @@ public class UserRealm extends AuthorizingRealm {
 		User doc = (User) principals.getPrimaryPrincipal();
 		// 角色
 		Set<String> r = new HashSet<String>();
-		r.add(doc.getRole() + "");
+		r.add(doc.getRoleCode() + "");
 		authorizationInfo.setRoles(r);
 		return authorizationInfo;
 	}
 
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
 		UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
-		String loginAccount = token.getUsername();
+		String username = token.getUsername();
 		char[] password = token.getPassword();
 		User user = new User() ;
 		// 判断是否填写用户名／密码
-		if(StringUtils.isNotBlank(loginAccount) && password != null){
-			 user = userDao.login(loginAccount);
+		if(StringUtils.isNotBlank(username) && password != null){
+			 user = userDao.login(username);
 		}
 		if (user == null) {
 			 throw new UnknownAccountException("账号密码错误");//没找到帐号
 		}
 
 		// 设置数据权限
-		return new SimpleAuthenticationInfo(user, user.getPassword(), user.getLoginAccount());
+		return new SimpleAuthenticationInfo(user, user.getPassword(), user.getUsername());
 	}
 	private static final String OR_OPERATOR = " or ";
 	private static final String AND_OPERATOR = " and ";

@@ -1,7 +1,8 @@
 package com.platform.service.impl;
 
 import com.platform.dao.DiseaseInfoDao;
-import com.platform.model.DiseaseItem;
+import com.platform.model.DiseaseInfo;
+import com.platform.model.DiseaseType;
 import com.platform.model.vm.ApiResult;
 import com.platform.service.IDiseaseInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,9 +61,22 @@ public class DiseaseInfoServiceImpl implements IDiseaseInfoService {
     }
 
     @Override
+    public ApiResult typeList() {
+        ApiResult result = new ApiResult();
+        List<DiseaseType> list = diseaseInfoDao.typeList();
+        if(list != null){
+            result.setData(list);
+            result.success();
+        }else{
+            result.fail("获取类型列表失败！");
+        }
+        return result;
+    }
+
+    @Override
     public ApiResult getList(HashMap<String,Object> search) {
         ApiResult result = new ApiResult();
-        List<DiseaseItem> list = diseaseInfoDao.list(search);
+        List<DiseaseInfo> list = diseaseInfoDao.list(search);
         Integer count = diseaseInfoDao.count(search);
         // 判断是否dataTable
         if(!search.containsKey("sEcho"))
@@ -72,6 +86,30 @@ public class DiseaseInfoServiceImpl implements IDiseaseInfoService {
             result.success();
         }else{
             result.fail("获取列表失败！");
+        }
+        return result;
+    }
+
+    @Override
+    public ApiResult setInvisible(List<Integer> ids) {
+        ApiResult result = new ApiResult();
+        Integer ins = diseaseInfoDao.setInvisible(ids);
+        if(ins > 0){
+            result.success();
+        }else{
+            result.fail("批量操作失败！");
+        }
+        return result;
+    }
+
+    @Override
+    public ApiResult setVisible(List<Integer> ids) {
+        ApiResult result = new ApiResult();
+        Integer ins = diseaseInfoDao.setVisible(ids);
+        if(ins > 0){
+            result.success();
+        }else{
+            result.fail("批量操作失败！");
         }
         return result;
     }

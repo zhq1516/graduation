@@ -3,6 +3,9 @@ package com.platform.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.platform.dao.WxUserInfoDao;
+import com.platform.model.Comment;
+import com.platform.model.PostHistory;
+import com.platform.model.PostInfo;
 import com.platform.model.WxUserInfo;
 import com.platform.model.vm.ApiResult;
 import com.platform.service.IWxUserInfoService;
@@ -12,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * @description:
@@ -78,6 +82,56 @@ public class WxUserInfoServiceImpl implements IWxUserInfoService {
                 result.setData(user);
                 result.success();
             }
+        }
+        return result;
+    }
+
+    @Override
+    public ApiResult postHistory(HashMap<String, Object> search) {
+        ApiResult result = new ApiResult();
+        List<PostHistory> list = wxUserInfoDao.postHistory(search);
+        if(list != null){
+            result.setData(list);
+            result.success();
+        }else{
+            result.fail("历史数据获取失败！");
+        }
+        return result;
+    }
+
+    @Override
+    public ApiResult deletePostHistory(HashMap<String, Object> search) {
+        ApiResult result = new ApiResult();
+        Integer ins = wxUserInfoDao.deletePostHistory(search);
+        if(ins > 0){
+            result.success();
+        }else{
+            result.fail("历史记录删除失败！");
+        }
+        return result;
+    }
+
+    @Override
+    public ApiResult commentHistory(HashMap<String, Object> search) {
+        ApiResult result = new ApiResult();
+        List<Comment> list = wxUserInfoDao.commentHistory(search);
+        if(list != null){
+            result.setData(list);
+            result.success();
+        }else{
+            result.fail("历史评论数据获取失败！");
+        }
+        return result;
+    }
+
+    @Override
+    public ApiResult deleteCommentHistory(HashMap<String, Object> search) {
+        ApiResult result = new ApiResult();
+        Integer ins = wxUserInfoDao.deleteCommentHistory(search);
+        if(ins > 0){
+            result.success();
+        }else{
+            result.fail("删除历史评论失败！");
         }
         return result;
     }

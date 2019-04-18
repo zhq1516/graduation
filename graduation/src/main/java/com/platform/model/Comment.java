@@ -22,6 +22,7 @@ public class Comment {
     private String userName;//评论用户名称
     private String userAvator;//评论用户头像
     private Integer postId;//文章ID
+    private String postTitle;//文章标题
     private Integer targetId;//评论对象ID
     private String content;//文字内容
     private List<MultipartFile> imageArray;//图片集
@@ -89,6 +90,14 @@ public class Comment {
 
     public void setPostId(Integer postId) {
         this.postId = postId;
+    }
+
+    public String getPostTitle() {
+        return postTitle;
+    }
+
+    public void setPostTitle(String postTitle) {
+        this.postTitle = postTitle;
     }
 
     public Integer getTargetId() {

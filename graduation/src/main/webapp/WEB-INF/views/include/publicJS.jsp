@@ -39,6 +39,11 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/vendor/cameo/editor.js"></script>
 -->
 
+<!--
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/vendor/js/websocket/sockjs.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/vendor/js/websocket/stomp.min.js"></script>
+-->
+
 <!-- 自定义的JS -->
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/staticUrl.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/common.js"></script>

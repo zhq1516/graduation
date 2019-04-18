@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 import java.util.HashMap;
 
 /**
- * @description:用户发布内容
+ * @description:用户对文章的操作
  * @author: Air
  * @date: 2019-03-09 13:39
  */
@@ -26,23 +26,6 @@ public class PostInfoController extends ApplicationController {
 
     @Resource
     private IPostInfoService postInfoService;
-
-    @RequestMapping(value = "")
-    public ModelAndView index(){
-        return buildMAV("post/list.jsp");
-    }
-
-    @RequestMapping(value = "manage/list")
-    public Object manageList(String aoData,String formData){
-        DataTablesParameters parameters = DataTablesParameters.fromJson(aoData);
-        HashMap<String, Object> searchMap = new HashMap<>();
-        searchMap = new Gson().fromJson(formData,searchMap.getClass());
-        searchMap.put("limit", parameters.getRows());
-        searchMap.put("offset", parameters.getStart());
-        searchMap.put("search", parameters.getSearch());
-        searchMap.put("sEcho",parameters.getsEcho());
-        return postInfoService.list(searchMap);
-    }
 
     @RequestMapping(value = "detail")
     public Object detail(@RequestBody HashMap<String,Object> map){

@@ -20,8 +20,10 @@ $(document).ready(function (e) {
     // 设置列
     dataTableInit["aoColumns"] = [
         {"data":"status","sTitle":"请选择","sWidth":"40px"},
-        {"data":"userName","sTitle":"用户名"},
-        {"data":"loginAccount","sTitle":"登录账号"},
+        {"data":"username","sTitle":"用户名"},
+        {"data":"realName","sTitle":"真实姓名"},
+        {"data":"phone","sTitle":"联系方式"},
+        {"data":"job","sTitle":"当前职称"},
         {"data":"createTime","sTitle":"创建时间"},
         {"data":"updateTime","sTitle":"最近修改时间"},
         {"data":"roleName","sTitle":"系统角色"},
@@ -42,7 +44,7 @@ $(document).ready(function (e) {
             }
         },
         {
-            "aTargets": 6,
+            "aTargets": 8,
             "mRender":function (data,type,full) {
                 var result = data === 1 ? "启用":"禁用";
                 return result;
@@ -113,7 +115,7 @@ $(document).ready(function (e) {
            for(var i = 0; i < datas.length; ++i){
                ids.push(datas[i].id);
            }
-           operationUser(1,ids,table);
+           batchOperation("user/operation",1,ids,table);
        }else{
            alert("请选择至少一名用户！");
        }
@@ -127,33 +129,24 @@ $(document).ready(function (e) {
             for(var i = 0; i < datas.length; ++i){
                 ids.push(datas[i].id);
             }
-            operationUser(2,ids,table);
+            batchOperation("user/operation",2,ids,table);
         }else{
             alert("请选择至少一名用户！");
         }
     });
 
-});
-
-// 批量操作用户
-function operationUser(type,ids,table) {
-    $.ajax({
-        type: "post",
-        url: server_context + "user/operation",
-        dataType: "json",
-        data: {
-            "ids":ids,
-            "type":type
-        },
-        success: function (res) {
-            if(res.status === 200){
-                alert("操作成功！");
-                if(table){
-                    table.ajax.reload();
-                }
-            }else{
-                alert("操作失败！");
+    // 启用用户
+    $("#unForbidUser").on("click",function (e) {
+        var datas = table.rows(['.selected']).data();
+        if(datas.length > 0){
+            var ids = [];
+            for(var i = 0; i < datas.length; ++i){
+                ids.push(datas[i].id);
             }
+            batchOperation("user/operation",3,ids,table);
+        }else{
+            alert("请选择至少一名用户！");
         }
-    });
-}
+    })
+
+});

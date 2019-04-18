@@ -5,6 +5,7 @@ import com.platform.model.User;
 import com.platform.model.vm.ApiResult;
 import com.platform.service.IUserService;
 import com.platform.utils.FileUploadUtil;
+import com.platform.utils.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,11 +39,15 @@ public class UserServiceImpl implements IUserService {
     @Override
     public ApiResult addUser(User model) {
         ApiResult result = new ApiResult();
-        if(model.getAvatorFile() != null){
+        if(model.getAvatorFile() != null && model.getAvatorFile().size() > 0){
             String avator = FileUploadUtil.uploadFile(model.getAvatorFile(),"avator");
-            model.setAvator("/" + avator);
+            model.setAvator(avator);
         }else{
             model.setAvator("/avator/public_avator.jpg");
+        }
+        if(model.getPassword() != null && !model.getPassword().equals("")){
+            String newPassword = MD5Util.md5Encrypt(model.getPassword());
+            model.setPassword(newPassword);
         }
         Integer ins = userDao.addUser(model);
         if(ins > 0){
@@ -57,11 +62,15 @@ public class UserServiceImpl implements IUserService {
     @Override
     public ApiResult modifyUser(User model) {
         ApiResult result = new ApiResult();
-        if(model.getAvatorFile() != null){
+        if(model.getAvatorFile() != null && model.getAvatorFile().size() > 0){
             String avator = FileUploadUtil.uploadFile(model.getAvatorFile(),"avator");
-            model.setAvator("/" + avator);
+            model.setAvator(avator);
         }else{
             model.setAvator("/avator/public_avator.jpg");
+        }
+        if(model.getPassword() != null && !model.getPassword().equals("")){
+            String newPassword = MD5Util.md5Encrypt(model.getPassword());
+            model.setPassword(newPassword);
         }
         Integer ins = userDao.modifyUser(model);
         if(ins > 0){
@@ -92,6 +101,18 @@ public class UserServiceImpl implements IUserService {
             result.success();
         }else{
             result.fail("禁用用户失败！");
+        }
+        return result;
+    }
+
+    @Override
+    public ApiResult unForbidUser(List<Integer> ids) {
+        ApiResult result = new ApiResult();
+        Integer ins = userDao.unForbidUser(ids);
+        if(ins > 0){
+            result.success();
+        }else{
+            result.fail("启用用户失败！");
         }
         return result;
     }

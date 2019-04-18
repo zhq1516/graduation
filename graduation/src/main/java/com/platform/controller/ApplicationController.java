@@ -23,7 +23,7 @@ public class ApplicationController {
 		return buildMAV(page,"platform/layout");
 	}
 
-	private ModelAndView buildMAV(String page, String layout){
+	public ModelAndView buildMAV(String page, String layout){
 		ModelAndView mav  = new ModelAndView(layout);
 		mav.addObject("view", page);
 		Map<String,String> requestContext = new HashMap<>();

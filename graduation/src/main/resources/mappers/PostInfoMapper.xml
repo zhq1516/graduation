@@ -6,6 +6,7 @@
     <resultMap id="postMap" type="com.platform.model.PostInfo">
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
+        <result column="publish_time" property="publishTime"/>
         <result column="poster_id" property="posterId"/>
         <result column="post_title" property="postTitle"/>
         <result column="post_content" property="postContent"/>
@@ -14,19 +15,20 @@
         <result column="collect_number" property="collectNumber"/>
         <result column="comment_number" property="commentNumber"/>
         <result column="up_number" property="upNumber"/>
+        <result column="publish_status" property="publishStatus"/>
     </resultMap>
 
     <!-- 根据ID获取帖子详情 -->
     <select id="detail" parameterType="java.util.HashMap" resultType="com.platform.model.PostInfo" resultMap="postMap">
         select
             p.*,
-            wu.nick_name as posterName,
-            wu.avatar_url as avator,
+            u1.real_name as posterName,
+            u1.avator as avator,
             if(r.user_id,1,0) as readStatus,
             if(c.user_id,1,0) as collectStatus,
             if(u.user_id,1,0) as upStatus
         from posts as p
-        left join wx_user as wu on p.poster_id = wu.id
+        left join user as u1 on p.poster_id = u1.id
         left join (select post_id,user_id from post_user_operation where type='READ' and user_id = #{userId} GROUP BY user_id,post_id) as r on p.id = r.post_id
         left join (select post_id,user_id from post_user_operation where type='COLLECT' and user_id = #{userId} GROUP BY user_id,post_id) as c on p.id = c.post_id
         left join (select post_id,user_id from post_user_operation where type='UP' and user_id = #{userId} group by user_id,post_id) as u on p.id = u.post_id
@@ -40,17 +42,28 @@
     <select id="list" resultType="com.platform.model.PostInfo" resultMap="postMap">
         select
             p.*,
-            wu.nick_name as posterName,
-            wu.avatar_url as avator
+            u.real_name as posterName,
+            u.avator as avator
         from posts as p
-        left join wx_user as wu on p.poster_id = wu.id
+        left join user as u on p.poster_id = u.id
         <where>
             p.status != 0
+            <if test="role == 2">
+                <if test="userId != null and userId != ''">
+                    and p.poster_id = #{userId}
+                </if>
+            </if>
+            <if test="from != null and from == 'wx'">
+                and p.publish_status = 1
+            </if>
             <if test="posterName != null and posterName != ''">
-                and wu.nick_name = #{posterName}
+                and u.real_name = #{posterName}
             </if>
             <if test="postTitle != null and postTitle != ''">
                 and p.post_title like concat('%',#{postTitle},'%')
+            </if>
+            <if test="publishStatus != null and publishStatus != ''">
+                and p.publish_status = #{publishStatus}
             </if>
             <if test="createTimeS != null and createTimeS != ''">
                 and p.create_time &gt;= #{createTimeS}
@@ -59,20 +72,32 @@
                 and p.create_time &lt;= #{createTimeE}
             </if>
         </where>
+        order by p.publish_time desc,p.create_time desc
     </select>
 
     <!-- 数量 -->
     <select id="count" parameterType="java.util.HashMap" resultType="java.lang.Integer">
         select count(*)
         from posts as p
-        left join wx_user as wu on p.poster_id = wu.id
+        left join user as u on p.poster_id = u.id
         <where>
             p.status != 0
+            <if test="role == 2">
+                <if test="userId != null and userId != ''">
+                    and p.poster_id = #{userId}
+                </if>
+            </if>
+            <if test="from != null and from == 'wx'">
+                and p.publish_status = 1
+            </if>
             <if test="posterName != null and posterName != ''">
-                and wu.nick_name = #{posterName}
+                and u.real_name = #{posterName}
             </if>
             <if test="postTitle != null and postTitle != ''">
                 and p.post_title like concat('%',#{postTitle},'%')
+            </if>
+            <if test="publishStatus != null and publishStatus != ''">
+                and p.publish_status = #{publishStatus}
             </if>
             <if test="createTimeS != null and createTimeS != ''">
                 and p.create_time &gt;= #{createTimeS}
@@ -181,5 +206,82 @@
         delete from comments
         where id = #{id}
     </delete>
+
+    <!-- 批量推送 -->
+    <update id="publish" parameterType="java.util.List">
+        update posts
+        set publish_status = 1,publish_time = NOW()
+        where id in
+        <foreach collection="list" index="index" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+    </update>
+
+    <!-- 批量取消推送 -->
+    <update id="cancelPublish" parameterType="java.util.List">
+        update posts
+        set publish_status = 0
+        where id in
+        <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+
+    <!-- 批量删除 -->
+    <delete id="delete" parameterType="java.util.List">
+        delete from posts
+        where id in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <!-- 新建文章 -->
+    <insert id="create" parameterType="com.platform.model.PostInfo">
+        insert into posts(
+            create_time,
+            update_time,
+            status,
+            poster_id,
+            post_img,
+            post_title,
+            post_content,
+            read_number,
+            collect_number,
+            up_number,
+            comment_number,
+            publish_status
+        ) values (
+            NOW(),
+            NOW(),
+            1,
+            #{posterId,jdbcType=INTEGER},
+            #{postImage,jdbcType=VARCHAR},
+            #{postTitle,jdbcType=VARCHAR},
+            #{postContent,jdbcType=VARCHAR},
+            0,
+            0,
+            0,
+            0,
+            0
+        )
+    </insert>
+
+    <!-- 更新文章 -->
+    <update id="update" parameterType="com.platform.model.PostInfo">
+        update posts
+        <set>
+            update_time = NOW(),
+            poster_id = #{posterId},
+            <if test="postImage != null and postImage != ''">
+                post_img = #{postImage},
+            </if>
+            post_title = #{postTitle},
+            post_content = #{postContent}
+        </set>
+        <where>
+            id = #{id}
+        </where>
+    </update>
 
 </mapper>

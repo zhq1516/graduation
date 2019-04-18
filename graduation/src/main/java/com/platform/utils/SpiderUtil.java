@@ -1,7 +1,6 @@
 package com.platform.utils;
 
 import com.platform.model.DiseaseInfo;
-import com.platform.model.DiseaseItem;
 import com.xst.golddata.GoldSpider;
 
 import java.util.*;

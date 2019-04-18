@@ -33,17 +33,9 @@
                                         <div class="panel-body form-horizontal">
                                             <div class="col-xs-12">
                                                 <div class="form-group">
-                                                    <label class="col-xs-4 control-label required">登录账号：</label>
+                                                    <label class="col-xs-4 control-label required">用户名：</label>
                                                     <div class="col-xs-6">
-                                                        <input type="text" class="form-control" name="loginAccount" placeholder="请输入手机号或邮箱">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12">
-                                                <div class="form-group">
-                                                    <label class="col-xs-4 control-label ">用户名：</label>
-                                                    <div class="col-xs-6">
-                                                        <input type="text" autocomplete="false" class="form-control" name="userName" placeholder="请输入用户名称">
+                                                        <input type="text" class="form-control" name="userName" placeholder="请输入登录用户名">
                                                     </div>
                                                 </div>
                                             </div>
@@ -52,6 +44,30 @@
                                                     <label class="col-xs-4 control-label ">密码：</label>
                                                     <div class="col-xs-6">
                                                         <input type="password" autocomplete="false" class="form-control" name="password" placeholder="请输入密码">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <div class="form-group">
+                                                    <label class="col-xs-4 control-label ">真实姓名：</label>
+                                                    <div class="col-xs-6">
+                                                        <input type="text" autocomplete="false" class="form-control" name="realName" placeholder="请输入真实名称">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <div class="form-group">
+                                                    <label class="col-xs-4 control-label ">当前职称：</label>
+                                                    <div class="col-xs-6">
+                                                        <input type="text" autocomplete="false" class="form-control" name="job" placeholder="请输入当前职称">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <div class="form-group">
+                                                    <label class="col-xs-4 control-label ">联系方式：</label>
+                                                    <div class="col-xs-6">
+                                                        <input type="text" autocomplete="false" class="form-control" name="phone" placeholder="请输入手机号码">
                                                     </div>
                                                 </div>
                                             </div>

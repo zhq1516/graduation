@@ -29,6 +29,9 @@ public interface IUserService {
     // 批量禁用用户
     ApiResult forbidUser(List<Integer> ids);
 
+    // 批量启用用户
+    ApiResult unForbidUser(List<Integer> ids);
+
     // 用户信息
     ApiResult detail(HashMap<String,Object> map);
 

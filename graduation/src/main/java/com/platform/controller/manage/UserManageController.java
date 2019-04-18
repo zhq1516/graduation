@@ -64,6 +64,9 @@ public class UserManageController extends ApplicationController {
             case 2:
                 result = userService.forbidUser(ids);
                 break;
+            case 3:
+                result = userService.unForbidUser(ids);
+                break;
             default:
                 break;
         }
@@ -76,4 +79,11 @@ public class UserManageController extends ApplicationController {
         return userService.detail(map);
     }
 
+    // 当前用户
+    @RequestMapping(value = "/current")
+    public Object current(){
+        ApiResult result = new ApiResult();
+        result.success(getCurrentUser());
+        return result;
+    }
 }

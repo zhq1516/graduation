@@ -7,9 +7,9 @@ import java.util.Date;
 /**
  * @description:
  * @author: Air
- * @date: 2019-03-25 16:16
+ * @date: 2019-03-26 14:53
  */
-public class DiseaseItem {
+public class DiseaseType {
 
     private Integer id;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
@@ -19,7 +19,6 @@ public class DiseaseItem {
     private Integer status;
     private String name;
     private String url;
-    private Integer type;
 
     public Integer getId() {
         return id;
@@ -27,14 +26,6 @@ public class DiseaseItem {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
     }
 
     public Date getCreateTime() {
@@ -69,11 +60,11 @@ public class DiseaseItem {
         this.name = name;
     }
 
-    public Integer getType() {
-        return type;
+    public String getUrl() {
+        return url;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

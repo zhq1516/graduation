@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <div class="page-content" style="display: none">
+    <div class="page-content">
         <div class="page-top">
             <div class="page-top-title">
                 <span>推送管理</span>
@@ -106,7 +106,7 @@
         </div>
     </div>
 
-    <div class="page-detail" style="display: block">
+    <div class="page-detail" style="display: none">
 
         <div class="row">
             <div class="col-md-12">

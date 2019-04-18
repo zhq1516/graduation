@@ -106,7 +106,7 @@ public class PostInfoServiceImpl implements IPostInfoService {
         if(model.getId() == null) {
             if(model.getImageArray() != null){
                 String image = FileUploadUtil.uploadFile(model.getImageArray(),"comment");
-                model.setImage("/" + image);
+                model.setImage(image);
             }
             ins = postInfoDao.comment(model);
         }else{
@@ -117,6 +117,64 @@ public class PostInfoServiceImpl implements IPostInfoService {
             result.success();
         }else{
             result.fail("评论操作失败！");
+        }
+        return result;
+    }
+
+    @Override
+    public ApiResult publish(List<Integer> ids) {
+        ApiResult result = new ApiResult();
+        Integer ins = postInfoDao.publish(ids);
+        if(ins > 0){
+            result.success();
+        }else{
+            result.fail("批量推送失败！");
+        }
+        return result;
+    }
+
+    @Override
+    public ApiResult cancelPublish(List<Integer> ids) {
+        ApiResult result = new ApiResult();
+        Integer ins = postInfoDao.cancelPublish(ids);
+        if(ins > 0){
+            result.success();
+        }else{
+            result.fail("批量取消推送失败！");
+        }
+        return result;
+    }
+
+    @Override
+    public ApiResult delete(List<Integer> ids) {
+        ApiResult result = new ApiResult();
+        Integer ins = postInfoDao.delete(ids);
+        if(ins > 0){
+            result.success();
+        }else{
+            result.fail("批量删除失败！");
+        }
+        return result;
+    }
+
+    @Override
+    public ApiResult save(PostInfo model) {
+        ApiResult result = new ApiResult();
+        Integer ins = 0;
+        if(model.getImageFiles() != null && model.getImageFiles().size() > 0){
+            String image = FileUploadUtil.uploadFile(model.getImageFiles(),"post");
+            model.setPostImage(image);
+        }
+        if(model.getId() == null){
+            ins = postInfoDao.create(model);
+        }else{
+            ins = postInfoDao.update(model);
+        }
+        if(ins > 0){
+            result.setData(model.getId());
+            result.success();
+        }else{
+            result.fail("文章保存失败！");
         }
         return result;
     }

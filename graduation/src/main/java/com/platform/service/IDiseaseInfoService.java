@@ -20,6 +20,12 @@ public interface IDiseaseInfoService {
 
     ApiResult spiderDetail(List<Map> list);
 
+    ApiResult typeList();
+
     ApiResult getList(HashMap<String,Object> search);
+
+    ApiResult setInvisible(List<Integer> ids);
+
+    ApiResult setVisible(List<Integer> ids);
 
 }

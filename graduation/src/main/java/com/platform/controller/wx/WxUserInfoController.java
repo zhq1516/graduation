@@ -43,8 +43,28 @@ public class WxUserInfoController extends ApplicationController {
     }
 
     @RequestMapping(value = "register")
-    public Object register(@RequestBody WxUserInfo model){
+    public Object register(WxUserInfo model){
         return wxUserInfoService.register(model);
+    }
+
+    @RequestMapping(value = "history/post")
+    public Object postHistory(@RequestBody HashMap<String,Object> search){
+        return wxUserInfoService.postHistory(search);
+    }
+
+    @RequestMapping(value = "history/post/delete")
+    public Object deletePostHistory(@RequestBody HashMap<String,Object> search){
+        return wxUserInfoService.deletePostHistory(search);
+    }
+
+    @RequestMapping(value = "history/comment")
+    public Object commentHistory(@RequestBody HashMap<String,Object> search){
+        return wxUserInfoService.commentHistory(search);
+    }
+
+    @RequestMapping(value = "history/comment/delete")
+    public Object deleteCommentHistory(@RequestBody HashMap<String,Object> search){
+        return wxUserInfoService.deleteCommentHistory(search);
     }
 
 }

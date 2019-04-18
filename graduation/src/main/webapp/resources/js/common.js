@@ -1,4 +1,30 @@
 
+var currentUser = undefined;
+
+/**
+ * 获取当前登录对象
+ * @returns {undefined}
+ */
+function getCurrentUser() {
+    if(!currentUser){
+        $.ajax({
+            type : "get",
+            url : server_context+"user/current",
+            async: false,
+            dataType : "json",
+            success : function(resp) {
+                if(resp.status === 200){
+                    currentUser = resp.data;
+                }
+            },
+            error : function(){
+                console.log("获取当前登录对象失败！")
+            }
+        });
+    }
+    return currentUser;
+}
+
 /**
  * 各类组件初始化
  */
@@ -145,6 +171,12 @@ function validateForm(form,url,table,callback) {
     return validateSubmitForm;
 }
 
+/**
+ * 自动填充数据
+ * @param form
+ * @param data
+ * @param callback
+ */
 function fillTableData(form,data,callback) {
     for(var key in data){
         if(data[key] !== null && data[key] !== ""){
@@ -157,4 +189,38 @@ function fillTableData(form,data,callback) {
     if(callback){
         callback();
     }
+}
+
+/**
+ * 批量操作
+ * @param url 地址
+ * @param type 操作类型
+ * @param ids ID列表
+ * @param table 刷新表格
+ * @param callback 回调函数
+ */
+function batchOperation(url,type,ids,table,callback) {
+    $.ajax({
+        type: "post",
+        url: server_context + url,
+        dataType: "json",
+        data: {
+            "ids":ids,
+            "type":type
+        },
+        success: function (res) {
+            if(res.status === 200){
+                alert("操作成功！");
+                if(table){
+                    table.ajax.reload();
+                }
+                if(callback){
+                    callback(res.data);
+                }
+            }else{
+                alert("操作失败！");
+            }
+        }
+    });
+    
 }

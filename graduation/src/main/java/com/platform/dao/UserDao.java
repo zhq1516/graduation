@@ -1,6 +1,7 @@
 package com.platform.dao;
 
 import com.platform.model.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -27,10 +28,13 @@ public interface UserDao {
     // 批量禁用用户
     Integer forbidUser(List<Integer> ids);
 
+    // 批量启用用户
+    Integer unForbidUser(List<Integer> ids);
+
     // 获取用户信息
     User detail(HashMap<String,Object> map);
 
     // 登录
-    User login(String userName);
+    User login(@Param("username") String username);
 
 }

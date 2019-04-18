@@ -2,8 +2,10 @@ package com.platform.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @description:用户发帖信息
@@ -17,20 +19,30 @@ public class PostInfo {
     private Date createTime;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date updateTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date publishTime;//推送时间
     private Integer status;
+    private Integer publishStatus;//推送状态
     private Integer posterId;//发帖人ID
     private String posterName;//发帖人昵称
     private String avator;//发帖人头像
     private String postTitle;//标题
     private String postContent;//内容
+    private List<MultipartFile> imageFiles;//上传图片文件
     private String postImage;// 配图
     private Integer collectNumber = 0;//收藏数
     private Integer collectStatus;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date collectTime;//收藏时间
     private Integer readNumber = 0;//阅读数
     private Integer readStatus;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date readTime;//阅读时间
     private Integer commentNumber = 0;//评论数
     private Integer upNumber = 0;//点赞数
     private Integer upStatus;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date upTime;//点赞时间
 
     public Integer getId() {
         return id;
@@ -94,6 +106,14 @@ public class PostInfo {
 
     public void setPostContent(String postContent) {
         this.postContent = postContent;
+    }
+
+    public List<MultipartFile> getImageFiles() {
+        return imageFiles;
+    }
+
+    public void setImageFiles(List<MultipartFile> imageFiles) {
+        this.imageFiles = imageFiles;
     }
 
     public String getAvator() {
@@ -166,5 +186,45 @@ public class PostInfo {
 
     public void setUpStatus(Integer upStatus) {
         this.upStatus = upStatus;
+    }
+
+    public Date getPublishTime() {
+        return publishTime;
+    }
+
+    public void setPublishTime(Date publishTime) {
+        this.publishTime = publishTime;
+    }
+
+    public Integer getPublishStatus() {
+        return publishStatus;
+    }
+
+    public void setPublishStatus(Integer publishStatus) {
+        this.publishStatus = publishStatus;
+    }
+
+    public Date getCollectTime() {
+        return collectTime;
+    }
+
+    public void setCollectTime(Date collectTime) {
+        this.collectTime = collectTime;
+    }
+
+    public Date getReadTime() {
+        return readTime;
+    }
+
+    public void setReadTime(Date readTime) {
+        this.readTime = readTime;
+    }
+
+    public Date getUpTime() {
+        return upTime;
+    }
+
+    public void setUpTime(Date upTime) {
+        this.upTime = upTime;
     }
 }

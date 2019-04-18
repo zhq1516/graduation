@@ -76,7 +76,7 @@ public class FileUploadUtil {
                     String path = "C:\\Users\\Air\\MY_WORK_SPACE\\staticResource\\" + storePath;
                     // 得到存储到本地的文件名
                     String localFileName= UUIDUtil.getUUID2() + getFileSuffix(originalFileName);
-                    result.append(storePath + "/" + localFileName + ",");
+                    result.append("/" + storePath + "/" + localFileName + ",");
                     // 新建本地文件
                     File localFile = new File(path,localFileName);
                     // 创建目录

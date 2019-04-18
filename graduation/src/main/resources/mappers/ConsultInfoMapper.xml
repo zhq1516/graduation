@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.platform.dao.ConsultInfoDao">
+
+    <resultMap id="consultMap" type="com.platform.model.ConsultInfo">
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="wx_user_id" property="wxUserId"/>
+        <result column="doctor_id" property="doctorId"/>
+        <result column="is_finished" property="isFinish"/>
+    </resultMap>
+
+    <!-- 获取咨询列表 -->
+    <select id="list" parameterType="java.util.HashMap" resultType="com.platform.model.ConsultInfo" resultMap="consultMap">
+        select
+            c.*,
+            wu.nick_name as wxUserName,
+            d.real_name as doctorName,
+            re.latestTime as latestTime
+        from consultation as c
+        left join wx_user as wu on c.wx_user_id = wu.id
+        left join (select * from user where role = 2) as d on c.doctor_id = d.id
+        left join (select consultation_id,max(create_time) as latestTime from message where user_type='DOCTOR' group by consultation_id) as re on c.id = re.consultation_id
+        <where>
+            c.status != 0
+            <if test="userId != null and userId != ''">
+                and c.wx_user_id = #{userId}
+            </if>
+            <if test="lastId != null and lastId != ''">
+                and c.id > #{lastId}
+            </if>
+            <if test="wxUserName != null and wxUserName != ''">
+                and wu.nick_name like concat('%',#{wxUserName},'%')
+            </if>
+            <if test="doctorName != null and doctorName != ''">
+                and d.real_name like concat('%',#{doctorName},'%')
+            </if>
+            <if test="question != null and question != ''">
+                and c.question like concat('%',#{question},'%')
+            </if>
+            <if test="isFinish != null and isFinish != ''">
+                and c.is_finished = #{isFinish}
+            </if>
+            <if test="createTimeS != null and createTimeS != ''">
+                and c.create_time &gt;= #{createTimeS}
+            </if>
+            <if test="createTimeE != null and createTimeE != ''">
+                and c.create_time &lt; #{createTimeE}
+            </if>
+            <if test="doctorId != null and doctorId != ''">
+                and c.doctor_id = #{doctorId}
+            </if>
+        </where>
+        order by c.create_time desc
+        limit
+        <if test="offset != null">
+            #{offset},
+        </if>
+        <if test="limit != null">
+            #{limit}
+        </if>
+        <if test="limit == null">
+            10
+        </if>
+    </select>
+
+    <!-- 获取列表数目 -->
+    <select id="count" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+        select count(*)
+        from consultation as c
+        left join wx_user as wu on c.wx_user_id = wu.id
+        left join (select * from user where role = 2) as d on c.doctor_id = d.id
+        left join (select consultation_id,max(create_time) as latestTime from message where user_type='DOCTOR' group by consultation_id) as re on c.id = re.consultation_id
+        <where>
+            c.status != 0
+            <if test="userId != null and userId != ''">
+                and c.wx_user_id = #{userId}
+            </if>
+            <if test="lastId != null and lastId != ''">
+                and c.id > #{lastId}
+            </if>
+            <if test="wxUserName != null and wxUserName != ''">
+                and wu.nick_name like concat('%',#{wxUserName},'%')
+            </if>
+            <if test="doctorName != null and doctorName != ''">
+                and d.real_name like concat('%',#{doctorName},'%')
+            </if>
+            <if test="question != null and question != ''">
+                and c.question like concat('%',#{question},'%')
+            </if>
+            <if test="isFinish != null and isFinish != ''">
+                and c.is_finished = #{isFinish}
+            </if>
+            <if test="createTimeS != null and createTimeS != ''">
+                and c.create_time &gt;= #{createTimeS}
+            </if>
+            <if test="createTimeE != null and createTimeE != ''">
+                and c.create_time &lt; #{createTimeE}
+            </if>
+            <if test="doctorId != null and doctorId != ''">
+                and c.doctor_id = #{doctorId}
+            </if>
+        </where>
+    </select>
+
+    <!-- 发起咨询 -->
+    <insert id="createConsult" parameterType="com.platform.model.ConsultInfo" keyProperty="id" useGeneratedKeys="true">
+        insert into consultation
+        (
+            create_time,
+            update_time,
+            status,
+            wx_user_id,
+            doctor_id,
+            question,
+            image,
+            is_finished
+        )values(
+            NOW(),
+            NOW(),
+            1,
+            #{wxUserId,jdbcType=INTEGER},
+            #{doctorId,jdbcType=INTEGER},
+            #{question,jdbcType=VARCHAR},
+            #{image,jdbcType=VARCHAR},
+            0
+        )
+    </insert>
+
+    <resultMap id="userMap" type="com.platform.model.User">
+        <result column="real_name" property="realName"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <!-- 医生列表 -->
+    <select id="doctor" parameterType="java.util.HashMap" resultType="com.platform.model.User" resultMap="userMap">
+        select u.*
+        from user as u
+        <where>
+            u.status != 0
+            and u.role = 2
+            <if test="search != null and search != ''">
+                and u.real_name like concat('%',#{search},'%')
+            </if>
+        </where>
+    </select>
+
+    <!-- 获取某次咨询信息 -->
+    <select id="detail" parameterType="java.util.HashMap" resultType="com.platform.model.ConsultInfo" resultMap="consultMap">
+        select
+            c.*,
+            d.real_name as doctorName
+        from consultation as c
+        left join (select * from user where role = 2) as d on c.doctor_id = d.id
+        <where>
+            c.status != 0
+            <if test="consultId != null and consultId != '' ">
+                and c.id = #{consultId}
+            </if>
+        </where>
+    </select>
+
+    <resultMap id="messageMap" type="com.platform.model.Message">
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="consultation_id" property="consultId"/>
+        <result column="user_type" property="userType"/>
+        <result column="user_id" property="userId"/>
+    </resultMap>
+
+    <!-- 消息列表 -->
+    <select id="msgList" parameterType="java.util.HashMap" resultType="com.platform.model.Message" resultMap="messageMap">
+        select
+	        m.*,
+	        IFNULL(wu.nick_name,u.real_name) as userName,
+	        IFNULL(wu.avatar_url,u.avator) as avator
+        from message as m
+	    left join wx_user as wu on m.user_id = wu.id and m.user_type = 'USER'
+	    left join `user` as u on m.user_id = u.id and m.user_type = 'DOCTOR'
+	    <where>
+            m.status != 0
+            <if test="consultId != null and consultId != ''">
+                and m.consultation_id = #{consultId}
+            </if>
+            <if test="lastId != null and lastId != ''">
+                and m.id > #{lastId}
+            </if>
+        </where>
+        order by m.id
+    </select>
+
+    <!-- 发送消息 -->
+    <insert id="sendMsg" parameterType="com.platform.model.Message" useGeneratedKeys="true" keyProperty="id">
+        insert into message (
+            create_time,
+            update_time,
+            status,
+            consultation_id,
+            user_type,
+            user_id,
+            content,
+            image
+        ) values (
+            NOW(),
+            NOW(),
+            1,
+            #{consultId,jdbcType=INTEGER},
+            #{userType,jdbcType=VARCHAR},
+            #{userId,jdbcType=INTEGER},
+            #{content,jdbcType=VARCHAR},
+            #{image,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <!-- 批量删除 -->
+    <delete id="delete" parameterType="java.util.List">
+        delete from consultation
+        where id in
+        <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <!-- 批量结束 -->
+    <update id="finish" parameterType="java.util.List">
+        update consultation
+        set is_finished = 1
+        where id in
+        <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+
+</mapper>

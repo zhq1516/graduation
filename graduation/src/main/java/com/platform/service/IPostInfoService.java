@@ -5,6 +5,7 @@ import com.platform.model.PostInfo;
 import com.platform.model.vm.ApiResult;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * @description:
@@ -30,5 +31,17 @@ public interface IPostInfoService {
 
     // 发送评论
     ApiResult comment(Comment model);
+
+    // 推送
+    ApiResult publish(List<Integer> ids);
+
+    // 取消推送
+    ApiResult cancelPublish(List<Integer> ids);
+
+    // 删除
+    ApiResult delete(List<Integer> ids);
+
+    // 保存
+    ApiResult save(PostInfo model);
 
 }

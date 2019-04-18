@@ -4,16 +4,29 @@
 <mapper namespace="com.platform.dao.UserDao">
 
     <resultMap id="userMap" type="com.platform.model.User">
-        <result column="username" property="userName"/>
+        <result column="real_name" property="realName"/>
         <result column="login_account" property="loginAccount"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
     </resultMap>
 
+    <!-- 登录 -->
+    <select id="login" resultType="com.platform.model.User" resultMap="userMap">
+        select
+            u.*,
+            r.code as roleCode,
+            r.name as roleName
+        from user as u
+        left join role as r on u.role = r.id
+        where u.username = #{username} and u.status != 0
+        order by u.create_time desc
+    </select>
+
     <!-- 列表 -->
     <select id="list" parameterType="java.util.HashMap" resultType="com.platform.model.User" resultMap="userMap">
         select
             u.*,
+            r.code as roleCode,
             r.name as roleName
         from user as u
         left join role as r on u.role = r.id
@@ -22,8 +35,11 @@
             <if test="userName != null and userName != ''">
                 and u.username like concat('%',#{userName},'%')
             </if>
-            <if test="loginAccount != null and loginAccount != ''">
-                and u.login_account = #{loginAccount}
+            <if test="realName != null and realName != ''">
+                and u.real_name like concat('%',#{realName},'%')
+            </if>
+            <if test="phone != null and phone != ''">
+                and u.phone = #{phone}
             </if>
             <if test="userRole != null and userRole != ''">
                 and r.id = #{userRole}
@@ -47,8 +63,11 @@
             <if test="userName != null and userName != ''">
                 and u.username like concat('%',#{userName},'%')
             </if>
-            <if test="loginAccount != null and loginAccount != ''">
-                and u.login_account = #{loginAccount}
+            <if test="realName != null and realName != ''">
+                and u.real_name like concat('%',#{realName},'%')
+            </if>
+            <if test="phone != null and phone != ''">
+                and u.phone = #{phone}
             </if>
             <if test="userRole != null and userRole != ''">
                 and r.id = #{userRole}
@@ -67,7 +86,9 @@
         insert into user(
             username,
             password,
-            login_account,
+            phone,
+            real_name,
+            job,
             role,
             avator,
             create_time,
@@ -75,9 +96,11 @@
             status
         )
         values(
-            #{userName,jdbcType=VARCHAR},
+            #{username,jdbcType=VARCHAR},
             #{password,jdbcType=VARCHAR},
-            #{loginAccount,jdbcType=VARCHAR},
+            #{phone,jdbcType=VARCHAR},
+            #{realName,jdbcType=VARCHAR},
+            #{job,jdbcType=VARCHAR},
             #{role,jdbcType=INTEGER},
             #{avator,jdbcType=VARCHAR},
             NOW(),
@@ -90,11 +113,13 @@
     <update id="modifyUser" parameterType="com.platform.model.User">
         update user
         <set>
-            username = #{userName},
+            username = #{username},
             <if test="password != null and password != ''">
                 password = #{password}
             </if>
-            login_account = #{loginAccount},
+            phone = #{phone},
+            real_name = #{realName},
+            job = #{job},
             role = #{role},
             avator = #{avator},
             update_time = NOW()
@@ -127,6 +152,16 @@
     <update id="forbidUser" parameterType="java.util.List">
         update user
         set status = 0
+        where id in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+
+    <!-- 批量启用用户 -->
+    <update id="unForbidUser" parameterType="java.util.List">
+        update user
+        set status = 1
         where id in
         <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
             #{item}

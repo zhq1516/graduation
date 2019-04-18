@@ -1,15 +1,19 @@
 package com.platform.controller.manage;
 
+import com.google.gson.Gson;
 import com.platform.controller.ApplicationController;
 import com.platform.model.DiseaseInfo;
-import com.platform.model.DiseaseItem;
+import com.platform.model.vm.ApiResult;
+import com.platform.model.vm.DataTablesParameters;
 import com.platform.service.IDiseaseInfoService;
 import com.platform.utils.SpiderUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.*;
@@ -21,12 +25,17 @@ import java.util.*;
  */
 
 @Controller
-@RequestMapping(value = "disease")
+@RequestMapping(value = "health")
 @ResponseBody
 public class DiseaseManageController extends ApplicationController {
 
     @Resource
     private IDiseaseInfoService diseaseInfoService;
+
+    @RequestMapping(value = "")
+    public ModelAndView index(){
+        return buildMAV("health/list.jsp");
+    }
 
     @RequestMapping(value = "spider/menu")
     public Object spiderMenu(){
@@ -57,8 +66,31 @@ public class DiseaseManageController extends ApplicationController {
     }
 
     @RequestMapping(value = "list")
-    public Object getList(@RequestBody HashMap<String,Object> search){
-        return diseaseInfoService.getList(search);
+    public Object getList(String aoData,String formData){
+        DataTablesParameters parameters = DataTablesParameters.fromJson(aoData);
+        HashMap<String, Object> searchMap = new HashMap<>();
+        searchMap = new Gson().fromJson(formData,searchMap.getClass());
+        searchMap.put("limit", parameters.getRows());
+        searchMap.put("offset", parameters.getStart());
+        searchMap.put("search", parameters.getSearch());
+        searchMap.put("sEcho",parameters.getsEcho());
+        return diseaseInfoService.getList(searchMap);
+    }
+
+    @RequestMapping(value = "operation")
+    public Object operation(@RequestParam(value = "ids[]") List<Integer> ids,Integer type){
+        ApiResult result = new ApiResult();
+        switch (type){
+            case 1:
+                result = diseaseInfoService.setInvisible(ids);
+                break;
+            case 2:
+                result = diseaseInfoService.setVisible(ids);
+                break;
+            default:
+                break;
+        }
+        return result;
     }
 
 }

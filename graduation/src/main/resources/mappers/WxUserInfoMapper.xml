@@ -88,4 +88,74 @@
         where wu.open_id = #{openId}
     </select>
 
+    <resultMap id="postHistoryMap" type="com.platform.model.PostHistory">
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="post_id" property="postId"/>
+    </resultMap>
+
+    <!-- 获取收藏、点赞、看过的文章 -->
+    <select id="postHistory" parameterType="java.util.HashMap" resultType="com.platform.model.PostHistory" resultMap="postHistoryMap">
+        select
+            puo.*,
+            p.post_title as postTitle,
+            p.poster_id as posterId,
+            u1.real_name as posterName,
+            <if test="type == 'COLLECT'">
+                puo.create_time as operationTime
+            </if>
+            <if test="type == 'UP'">
+                puo.create_time as operationTime
+            </if>
+            <if test="type == 'READ'">
+                puo.create_time as operationTime
+            </if>
+        from post_user_operation as puo
+        left join posts as p on puo.post_id = p.id
+        left join user as u1 on p.poster_id = u1.id
+        <where>
+            puo.status != 0
+            <if test="type != null and type != ''">
+                and puo.type = #{type}
+            </if>
+            <if test="userId != null and userId != ''">
+                and puo.user_id = #{userId}
+            </if>
+        </where>
+    </select>
+
+    <resultMap id="commentMap" type="com.platform.model.Comment">
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="user_id" property="userId"/>
+        <result column="post_id" property="postId"/>
+        <result column="target_id" property="targetId"/>
+    </resultMap>
+
+    <!-- 删除历史操作 -->
+    <delete id="deletePostHistory" parameterType="java.util.HashMap">
+        delete from post_user_operation where id = #{id}
+    </delete>
+
+    <!-- 获取历史评论数据 -->
+    <select id="commentHistory" parameterType="java.util.HashMap" resultType="com.platform.model.Comment" resultMap="commentMap">
+        select
+            cm.*,
+            p.post_title as postTitle
+        from comments as cm
+        left join posts as p on cm.post_id = p.id
+        <where>
+            cm.status != 0
+            <if test="userId != null and userId != ''">
+                and cm.user_id = #{userId}
+            </if>
+        </where>
+        order by cm.create_time desc
+    </select>
+
+    <!-- 删除历史评论 -->
+    <delete id="deleteCommentHistory" parameterType="java.util.HashMap">
+        delete from comments where id = #{id}
+    </delete>
+
 </mapper>

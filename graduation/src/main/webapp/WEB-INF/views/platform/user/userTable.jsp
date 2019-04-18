@@ -28,22 +28,15 @@
                         <div class="bootstrap-dialog-message">
                             <div>
                                 <div class="panel panel-default" style="border-radius: 0">
-                                    <form id="userInfoForm" enctype="multipart/form-data">
+                                    <form id="userInfoForm">
                                         <input type="hidden" name="id">
+                                        <input type="hidden" name="avator">
                                         <div class="panel-body form-horizontal">
                                             <div class="col-xs-12">
                                                 <div class="form-group">
                                                     <label class="col-xs-4 control-label required">登录账号：</label>
                                                     <div class="col-xs-6">
-                                                        <input type="text" class="form-control" name="loginAccount" placeholder="请输入手机号或邮箱">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12">
-                                                <div class="form-group">
-                                                    <label class="col-xs-4 control-label ">用户名：</label>
-                                                    <div class="col-xs-6">
-                                                        <input type="text" autocomplete="false" class="form-control" name="userName" placeholder="请输入用户名称">
+                                                        <input type="text" class="form-control" name="username" placeholder="请输入用户账号">
                                                     </div>
                                                 </div>
                                             </div>
@@ -52,6 +45,30 @@
                                                     <label class="col-xs-4 control-label ">密码：</label>
                                                     <div class="col-xs-6">
                                                         <input type="password" autocomplete="false" class="form-control" name="password" placeholder="请输入密码">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <div class="form-group">
+                                                    <label class="col-xs-4 control-label ">真实姓名：</label>
+                                                    <div class="col-xs-6">
+                                                        <input type="text" autocomplete="false" class="form-control" name="realName" placeholder="请输入真实名称">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <div class="form-group">
+                                                    <label class="col-xs-4 control-label ">当前职称：</label>
+                                                    <div class="col-xs-6">
+                                                        <input type="text" autocomplete="false" class="form-control" name="job" placeholder="请输入当前职称">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <div class="form-group">
+                                                    <label class="col-xs-4 control-label ">联系方式：</label>
+                                                    <div class="col-xs-6">
+                                                        <input type="text" autocomplete="false" class="form-control" name="phone" placeholder="请输入手机号码">
                                                     </div>
                                                 </div>
                                             </div>
@@ -71,7 +88,7 @@
                                                 <div class="form-group">
                                                     <label class="col-xs-4 control-label ">用户头像：</label>
                                                     <div class="col-xs-6 avatar-area">
-                                                        <input class="hidden" type="file" id="chooseAvator" name="avatorFile" accept="image/*">
+                                                        <input class="hidden" type="file" id="chooseAvator" accept="image/*">
                                                         <div class="avatar-box" id="addAvator">
                                                             <img id="showAvator" name="avator" src="" alt="">
                                                         </div>
@@ -81,7 +98,7 @@
                                             </div>
                                         </div>
                                         <div class="panel-footer text-center">
-                                            <button class="btn btn-color btn-sm" type="submit" name="formSubmit">保存</button>
+                                            <button class="btn btn-color btn-sm" type="button" id="saveUser" name="formSubmit">保存</button>
                                             <button class="btn btn-color btn-sm" type="button" name="formReset">重置</button>
                                             <button class="btn btn-color btn-sm" type="button" name="formClose" data-dismiss="modal">关闭</button>
                                         </div>

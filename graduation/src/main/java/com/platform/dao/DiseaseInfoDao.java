@@ -1,7 +1,7 @@
 package com.platform.dao;
 
 import com.platform.model.DiseaseInfo;
-import com.platform.model.DiseaseItem;
+import com.platform.model.DiseaseType;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -26,12 +26,19 @@ public interface DiseaseInfoDao {
     // 爬取疾病详情
     Integer spiderDetail(List<Map> list);
 
-    // 获取疾病列表
-    List<DiseaseItem> list(HashMap<String,Object> search);
+    // 获取疾病类型列表
+    List<DiseaseType> typeList();
 
-    // 疾病列表
+    // 获取疾病列表
+    List<DiseaseInfo> list(HashMap<String,Object> search);
+
+    // 疾病列表数目
     Integer count(HashMap<String,Object> search);
 
-    // 获取
+    // 批量不可见
+    Integer setInvisible(List<Integer> ids);
+
+    // 批量可见
+    Integer setVisible(List<Integer> ids);
 
 }
